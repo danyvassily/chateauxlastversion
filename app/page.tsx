@@ -59,8 +59,80 @@ export default function HomePage() {
         },
       })
 
-      // Section Animations on Scroll
-      const sections = gsap.utils.toArray("section:not(:first-child)")
+      // Animation élégante pour la section Vins
+      const wineTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section-wines",
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
+      })
+
+      wineTimeline
+        // Image fade in depuis la gauche
+        .from(".wine-image", {
+          x: -80,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        })
+        // Badge apparaît en douceur
+        .from(
+          ".wine-badge",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.6"
+        )
+        // Titre glisse élégamment
+        .from(
+          ".wine-title",
+          {
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        // Textes apparaissent l'un après l'autre
+        .from(
+          ".wine-text-1",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        .from(
+          ".wine-text-2",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power2.out",
+          },
+          "-=0.6"
+        )
+        // Bouton final
+        .from(
+          ".wine-button",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+
+      // Section Animations on Scroll (pour les autres sections)
+      const sections = gsap.utils.toArray("section:not(:first-child):not(.section-wines)")
       sections.forEach((section) => {
         gsap.from(section as gsap.DOMTarget, {
           opacity: 0,
@@ -134,8 +206,229 @@ export default function HomePage() {
       </section>
 
 
-      {/* Section suivante - à développer selon les besoins */}
+      {/* 1. NOS VINS - Image à gauche, Texte à droite avec animation */}
+      <section className="relative py-16 lg:py-24 mt-12 lg:mt-16 bg-white overflow-hidden section-wines">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none grain"></div>
+        
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Image à gauche - Taille réduite */}
+            <div className="relative wine-image">
+              <div className="relative h-[400px] lg:h-[550px] rounded-sm overflow-hidden shadow-2xl">
+                <Image
+                  src="/Page/homepage/Nos vins gamme pétrichor.jpg"
+                  alt="Gamme de vins Pétrichor du Château Lastours"
+                  fill
+                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
+              </div>
+              {/* Ornement décoratif */}
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-[#D4AF37]/20 rounded-sm -z-10"></div>
+            </div>
 
+            {/* Texte à droite avec animations */}
+            <div className="space-y-8 wine-content">
+              <div className="inline-block wine-badge">
+                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#8B7355] border border-[#8B7355]/30 px-4 py-2 rounded-sm bg-white/50 backdrop-blur-sm">
+                  Nos Vins
+                </span>
+              </div>
+              
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light leading-[1.05] tracking-tight text-gray-900 wine-title">
+                Nos Vins
+              </h2>
+              
+              <div className="space-y-6">
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light text-gray-700 wine-text wine-text-1">
+                  De notre gamme <span className="italic font-serif text-[#8B7355] font-medium">Pétrichor</span>, 
+                  signature de notre savoir-faire, à nos cuvées confidentielles, chaque vin exprime 
+                  avec élégance la quintessence de notre terroir.
+                </p>
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light text-gray-700 wine-text wine-text-2">
+                  Rouges puissants et structurés, blancs fins et minéraux, rosés délicats et aromatiques : 
+                  notre palette de vins reflète la diversité et la richesse de nos parcelles d'exception.
+                </p>
+              </div>
+              
+              <div className="pt-4 wine-button">
+                <Button
+                  variant="outline"
+                  asChild
+                  className="group border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 px-8 py-6 text-sm tracking-[0.25em] uppercase font-light"
+                >
+                  <Link href="/les-vins">
+                    Découvrir nos vins
+                    <MoveRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 2. VISITER LE CHÂTEAU - PANORAMIQUE */}
+      <section className="relative h-[75vh] lg:h-[90vh] overflow-hidden mt-12 lg:mt-16">
+        <div className="absolute inset-0">
+          <Image
+            src="/Page/homepage/Château côté jardin.JPG"
+            alt="Château Lastours côté jardin"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
+        </div>
+
+        {/* Texte superposé - Position CENTRÉE */}
+        <div className="relative h-full flex items-center justify-center text-center">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-block mb-6">
+                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
+                  Découvrir
+                </span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-serif font-light leading-[1.05] tracking-tight text-white mb-6 lg:mb-8">
+                Visiter le Château
+              </h2>
+              <div className="space-y-5 text-white/90 mb-10 max-w-3xl mx-auto">
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light">
+                  Niché au cœur de l'appellation <span className="italic font-serif text-[#D4AF37]">Corbières Boutenac</span>, 
+                  le Château Lastours se dévoile dans toute sa splendeur. Architecture du XVIe siècle et jardins 
+                  à la française composent un écrin de sérénité où le temps semble suspendu.
+                </p>
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light">
+                  Venez découvrir nos chais, notre domaine et nos jardins lors d'une visite guidée qui vous 
+                  plongera au cœur de notre patrimoine viticole et architectural.
+                </p>
+              </div>
+              <div>
+                <Button
+                  variant="outline"
+                  asChild
+                  className="group bg-white/10 backdrop-blur-md border-white hover:bg-white hover:text-gray-900 transition-all duration-300 px-8 py-6 text-sm tracking-[0.25em] uppercase font-light text-white"
+                >
+                  <Link href="/reservation">
+                    Réserver une visite
+                    <MoveRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. UNE HISTOIRE À PARTAGER - PANORAMIQUE */}
+      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-12 lg:mt-16">
+        <div className="absolute inset-0">
+          <Image
+            src="/Page/homepage/Chapelle et vignes.jpeg"
+            alt="Chapelle et vignes du Château Lastours"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
+        </div>
+
+        {/* Texte superposé - Position DROITE */}
+        <div className="relative h-full flex items-center justify-end">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-2xl ml-auto">
+              <div className="inline-block mb-6">
+                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
+                  Notre Histoire
+                </span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light leading-[1.05] tracking-tight text-white mb-6 lg:mb-8">
+                Une Histoire à Partager
+              </h2>
+              <div className="space-y-5 text-white/90 mb-8">
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light">
+                  Depuis 1579, chaque pierre raconte une histoire, celle d'un terroir exceptionnel cultivé 
+                  avec passion, celle d'un patrimoine vivant où tradition et excellence se rencontrent.
+                </p>
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light">
+                  De la chapelle ancestrale dominant le vignoble aux rangées de vignes méticuleusement 
+                  entretenues, chaque parcelle témoigne de notre engagement pour un vin d'exception.
+                </p>
+              </div>
+              <div>
+                <Button
+                  variant="outline"
+                  asChild
+                  className="group bg-white/10 backdrop-blur-md border-white hover:bg-white hover:text-gray-900 transition-all duration-300 px-8 py-6 text-sm tracking-[0.25em] uppercase font-light text-white"
+                >
+                  <Link href="/domaine/histoire">
+                    Découvrir notre histoire
+                    <MoveRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. L'ÉLÉGANCE D'UN ART DE VIVRE - PANORAMIQUE */}
+      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-12 lg:mt-16 mb-12 lg:mb-16">
+        <div className="absolute inset-0">
+          <Image
+            src="/Page/homepage/Mariage au château.jpg"
+            alt="Mariage au Château Lastours"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+          <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
+        </div>
+
+        {/* Texte superposé - Position BAS */}
+        <div className="relative h-full flex items-end pb-12 lg:pb-20">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl">
+              <div className="inline-block mb-6">
+                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
+                  Art de Vivre
+                </span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light leading-[1.05] tracking-tight text-white mb-6 lg:mb-8">
+                L'Élégance d'un Art de Vivre
+              </h2>
+              <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light text-white/90">
+                  Le Château Lastours ouvre ses portes pour célébrer vos instants précieux. 
+                  Mariages, réceptions privées, séminaires d'entreprise : notre domaine se transforme 
+                  en écrin pour vos événements les plus mémorables.
+                </p>
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light text-white/90">
+                  Dans un cadre enchanteur alliant patrimoine historique et nature préservée, 
+                  notre équipe vous accompagne pour créer une expérience sur mesure, 
+                  où chaque détail révèle l'art de vivre à la française.
+                </p>
+              </div>
+              <div>
+                <Button
+                  variant="outline"
+                  asChild
+                  className="group bg-white/10 backdrop-blur-md border-white hover:bg-white hover:text-gray-900 transition-all duration-300 px-8 py-6 text-sm tracking-[0.25em] uppercase font-light text-white"
+                >
+                  <Link href="/evenements/organiser">
+                    Organiser votre événement
+                    <MoveRight className="ml-3 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   )

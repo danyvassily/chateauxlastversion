@@ -126,7 +126,7 @@ export default function HistoirePage() {
         </div>
 
         {/* Espace aéré après le hero - Style luxe */}
-        <div className="h-32 lg:h-48"></div>
+        <div className="h-16 lg:h-24"></div>
       </section>
 
       {/* Citation principale */}
@@ -139,7 +139,7 @@ export default function HistoirePage() {
       {histoireSections.map((section, index) => (
         <section 
           key={section.id}
-          className="relative z-10 mb-24 lg:mb-36 xl:mb-44"
+          className="relative z-10 mb-12 lg:mb-16 xl:mb-20"
         >
           {/* Image panoramique pleine largeur */}
           <div className="relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
@@ -182,7 +182,7 @@ export default function HistoirePage() {
       ))}
 
       {/* Footer local - Style Ruinart */}
-      <section className="py-40 lg:py-52 xl:py-60 relative z-10 gradient-footer-premium">
+      <section className="py-24 lg:py-32 xl:py-40 relative z-10 gradient-footer-premium">
         <div className={SPACING.container}>
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
