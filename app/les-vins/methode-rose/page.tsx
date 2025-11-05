@@ -12,8 +12,8 @@ export default function MethodeRosePage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page Méthode Rosé/LA METHODE ROSE.jpg"
-      pdfPath="/Page/Page Méthode Rosé/FT_la_méthode_rosée_23.pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/LA METHODE ROSE.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/FT_la_méthode_rosée_23.pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page Méthode Rosé/LA METHODE ROSE.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/LA METHODE ROSE.jpg"],
     },
   }
 }

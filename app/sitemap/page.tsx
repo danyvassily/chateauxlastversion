@@ -1,5 +1,3 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 
@@ -29,8 +27,8 @@ export default function SitemapPage() {
       title: "Savoir-Faire",
       url: "/savoir-faire",
       children: [
-        { title: "La Vigne", url: "/savoir-faire/vigne" },
-        { title: "Les Chais", url: "/savoir-faire/chais" },
+        { title: "Le cycle de la vigne", url: "/le-cycle-de-la-vigne" },
+        { title: "De la vigne à la bouteille", url: "/de-la-vigne-a-la-bouteille" },
         { title: "Conservation", url: "/savoir-faire/conservation" },
         { title: "Service & Dégustation", url: "/savoir-faire/service-degustation" },
       ],
@@ -50,11 +48,6 @@ export default function SitemapPage() {
         { title: "Collection Poussin", url: "/les-vins?collection=poussin" },
         { title: "Collection Opus", url: "/les-vins?collection=opus" },
       ],
-    },
-    {
-      title: "Où nous trouver",
-      url: "/ou-nous-trouver",
-      children: [],
     },
     {
       title: "Gastronomie",
@@ -92,7 +85,7 @@ export default function SitemapPage() {
       url: "/support",
       children: [
         { title: "FAQ", url: "/faq" },
-        { title: "Contact", url: "/contact" },
+        { title: "Nous contacter", url: "/contact" },
       ],
     },
     {
@@ -110,10 +103,8 @@ export default function SitemapPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
-      <main className="pt-20">
-        <div className="container mx-auto px-4 lg:px-8 py-16">
+      {/* Header et Footer sont déjà dans le layout.tsx */}
+      <div className="container mx-auto px-4 lg:px-8 py-16">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-display mb-8 text-foreground">Plan du Site</h1>
             <p className="text-lg text-muted-foreground mb-12">
@@ -175,9 +166,7 @@ export default function SitemapPage() {
               </div>
             </div>
           </div>
-        </div>
-      </main>
-
+      </div>
     </div>
   )
 }

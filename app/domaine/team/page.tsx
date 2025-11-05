@@ -1,18 +1,79 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+"use client"
+
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Mail, Phone, Users, Award, Heart } from "lucide-react"
+import { useState } from "react"
+import { cn } from "@/lib/utils"
+
+// Composant Image simple pour les chemins avec espaces
+function TeamImage({ 
+  src, 
+  alt, 
+  className = "",
+  containerClassName = "",
+  fill = false,
+  objectFit = "cover",
+  objectPosition = "center center"
+}: {
+  src: string
+  alt: string
+  className?: string
+  containerClassName?: string
+  fill?: boolean
+  objectFit?: "cover" | "contain"
+  objectPosition?: string
+}) {
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
+
+  return (
+    <div className={cn("relative overflow-hidden", containerClassName)}>
+      {isLoading && (
+        <div className="absolute inset-0 bg-muted animate-pulse" />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        style={{
+          objectFit: objectFit,
+          objectPosition: objectPosition
+        }}
+        className={cn(
+          fill ? "w-full h-full" : "",
+          "transition-opacity duration-300",
+          isLoading ? "opacity-0" : "opacity-100",
+          hasError && "grayscale",
+          className
+        )}
+        onLoad={() => setIsLoading(false)}
+        onError={() => {
+          setHasError(true)
+          setIsLoading(false)
+        }}
+        loading={fill ? "eager" : "lazy"}
+        decoding="async"
+      />
+    </div>
+  )
+}
 
 export default function TeamPage() {
   return (
     <div className="min-h-screen">
-      <Header />
-
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url('/winemaking-team-portrait-in-vineyard.png')]" />
-        <div className="absolute inset-0 bg-black/50" />
+      <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <TeamImage
+            src="/Page/Page Team/Photos page team/Photo de groupe.jpeg"
+            alt="Équipe du Château Lastours"
+            fill
+            objectFit="cover"
+            containerClassName="absolute inset-0"
+            className="w-full h-full"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-display mb-4 text-balance">Notre Équipe</h1>
           <p className="text-xl md:text-2xl text-pretty opacity-90">Passion et expertise au service de l'excellence</p>
@@ -29,30 +90,42 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-8 md:p-12">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-accent/20 rounded-full mb-6">
-                  <Users className="w-10 h-10 text-accent" />
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-8 md:p-12 overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="order-2 md:order-1">
+                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-xl">
+                    <TeamImage
+                      src="/Page/Page Team/Photos page team/Louis.jpeg"
+                      alt="Louis de Faramond"
+                      fill
+                      objectFit="cover"
+                      objectPosition="center top"
+                      containerClassName="absolute inset-0"
+                      className="w-full h-full"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-display mb-4">Louis de Faramond</h3>
-                <p className="text-xl text-accent font-medium mb-6">Vigneron & Nouvelle Génération</p>
-                <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
-                  <p className="text-lg">
-                    Louis représente la nouvelle génération de la famille de Faramond. Il fait preuve de courage et 
-                    d'abnégation pour le succès que connaît aujourd'hui le château.
-                  </p>
-                  <p className="text-lg">
-                    Louis apporte un regard moderne sur la viticulture tout en respectant les traditions familiales. Il
-                    participe activement à la transformation de l'espace de production en espace d'accueil agréable et au
-                    développement de l'œnotourisme.
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <Button variant="outline" size="lg">
-                    <Mail className="w-5 h-5 mr-2" />
-                    louis@chateau-lastours.com
-                  </Button>
+                <div className="order-1 md:order-2 text-center md:text-left">
+                  <h3 className="text-3xl md:text-4xl font-display mb-4">Louis de Faramond</h3>
+                  <p className="text-xl text-accent font-medium mb-6">Vigneron & Nouvelle Génération</p>
+                  <div className="space-y-4 text-muted-foreground leading-relaxed">
+                    <p className="text-lg">
+                      Louis représente la nouvelle génération de la famille de Faramond. Il fait preuve de courage et 
+                      d'abnégation pour le succès que connaît aujourd'hui le château.
+                    </p>
+                    <p className="text-lg">
+                      Louis apporte un regard moderne sur la viticulture tout en respectant les traditions familiales. Il
+                      participe activement à la transformation de l'espace de production en espace d'accueil agréable et au
+                      développement de l'œnotourisme.
+                    </p>
+                  </div>
+                  <div className="mt-8">
+                    <Button variant="outline" size="lg">
+                      <Mail className="w-5 h-5 mr-2" />
+                      louis@chateau-lastours.com
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,106 +143,158 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Jean-Michel Dubois */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-border/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                  <Award className="w-6 h-6 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-display mb-2">Jean-Michel Dubois</h3>
-                  <p className="text-accent font-semibold mb-3">Maître de Chai</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    30 ans d'expérience au service de la vinification. Jean-Michel supervise l'élaboration de tous nos
-                    vins avec une précision d'orfèvre et une passion intacte.
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* Adrien */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/Adrien.jpeg"
+                  alt="Adrien"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center top"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">Adrien</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Passionné par la viticulture et le savoir-faire traditionnel, Adrien contribue à l'excellence de nos vins au quotidien.
+                </p>
               </div>
             </div>
 
-            {/* Sophie Martin */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-border/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-display mb-2">Sophie Martin</h3>
-                  <p className="text-accent font-semibold mb-3">Chef de Culture</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Ingénieure agronome spécialisée en viticulture durable, Sophie coordonne les travaux de la vigne et
-                    veille à la santé de nos 120 hectares.
-                  </p>
-                </div>
+            {/* Caroline */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/Caroline.jpeg"
+                  alt="Caroline"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center center"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">Caroline</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Caroline apporte son expertise et sa passion pour offrir la meilleure expérience à nos visiteurs et clients.
+                </p>
               </div>
             </div>
 
-            {/* Pierre Rousseau */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-border/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                  <Users className="w-6 h-6 text-purple-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-display mb-2">Pierre Rousseau</h3>
-                  <p className="text-accent font-semibold mb-3">Sommelier</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Sommelier diplômé, Pierre accueille nos visiteurs et partage sa passion lors des dégustations et
-                    visites du domaine.
-                  </p>
-                </div>
+            {/* Eva */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/Eva.jpeg"
+                  alt="Eva"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center top"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">Eva</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Eva met son savoir-faire et son enthousiasme au service de la qualité et de l'innovation viticole.
+                </p>
               </div>
             </div>
 
-            {/* Claire Moreau */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-border/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Award className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-display mb-2">Claire Moreau</h3>
-                  <p className="text-accent font-semibold mb-3">Directrice Marketing</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Diplômée d'école de commerce, Claire développe la notoriété du domaine et coordonne nos événements et
-                    partenariats.
-                  </p>
-                </div>
+            {/* François */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/François.jpeg"
+                  alt="François"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center top"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">François</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Avec son expérience et sa passion, François participe activement à l'élaboration de nos cuvées d'exception.
+                </p>
               </div>
             </div>
 
-            {/* Antoine Leroy */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-border/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                  <Users className="w-6 h-6 text-orange-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-display mb-2">Antoine Leroy</h3>
-                  <p className="text-accent font-semibold mb-3">Responsable Export</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Expert en commerce international, Antoine développe la présence de nos vins sur les marchés
-                    internationaux avec succès.
-                  </p>
-                </div>
+            {/* Nicolas */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/Nicolas.jpeg"
+                  alt="Nicolas"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center top"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">Nicolas</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Nicolas apporte son expertise technique et son dévouement pour garantir l'excellence de chaque étape de production.
+                </p>
               </div>
             </div>
 
-            {/* Isabelle Durand */}
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-border/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-pink-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-display mb-2">Isabelle Durand</h3>
-                  <p className="text-accent font-semibold mb-3">Responsable Accueil</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Passionnée d'œnotourisme, Isabelle organise les visites et événements du domaine pour offrir une
-                    expérience inoubliable.
-                  </p>
-                </div>
+            {/* Pauline */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/Pauline.jpeg"
+                  alt="Pauline"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center top"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">Pauline</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Pauline contribue avec passion et professionnalisme à la renommée et au développement du domaine.
+                </p>
+              </div>
+            </div>
+
+            {/* Stéphane */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1">
+              <div className="relative aspect-[4/3]">
+                <TeamImage
+                  src="/Page/Page Team/Photos page team/Stephane.jpeg"
+                  alt="Stéphane"
+                  fill
+                  objectFit="cover"
+                  objectPosition="center top"
+                  containerClassName="absolute inset-0"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-display mb-2">Stéphane</h3>
+                <p className="text-accent font-semibold mb-3">Membre de l'Équipe</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Stéphane met son savoir-faire et son expertise au service de la tradition et de l'innovation viticole.
+                </p>
               </div>
             </div>
           </div>
@@ -219,7 +344,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }

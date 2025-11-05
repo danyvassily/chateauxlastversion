@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { FloatingAuthButton } from "@/components/floating-auth-button"
 import { Toaster } from "@/components/ui/toaster"
 import { ClientLayout } from "@/components/ClientLayout"
+import { ConditionalMainPadding } from "@/components/ConditionalMainPadding"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chateau-lastours.netlify.app'),
@@ -35,18 +36,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr">
-      {/* The default theme is now dark, so we don't need to add "dark" className to the body */}
-      <body suppressHydrationWarning className="antialiased">
+    <html lang="fr" className="light">
+      <body suppressHydrationWarning className="antialiased light-theme">
         <AuthProvider>
           <CartProvider>
+            {/* Header en dehors du ScrollSmootherWrapper pour fonctionner avec fixed */}
+            <Header />
             <ClientLayout>
-              <Header />
-              <main className="pt-20">{children}</main>
+              <ConditionalMainPadding>{children}</ConditionalMainPadding>
               <Footer />
               <FloatingAuthButton />
-              <Toaster />
             </ClientLayout>
+            <Toaster />
           </CartProvider>
         </AuthProvider>
       </body>

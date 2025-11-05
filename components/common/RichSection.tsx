@@ -11,7 +11,7 @@ interface RichSectionProps {
   imageFirst?: boolean
   kicker?: string
   className?: string
-  variant?: 'default' | 'dark' | 'light'
+  variant?: 'default' | 'accent' | 'light'
 }
 
 export function RichSection({
@@ -26,13 +26,13 @@ export function RichSection({
 }: RichSectionProps) {
   const bgClasses = {
     default: 'bg-gray-50',
-    dark: 'bg-gray-900 text-white',
+    accent: 'bg-accent-50 text-gray-900',
     light: 'bg-white'
   }
 
   const textClasses = {
     default: 'text-gray-900',
-    dark: 'text-white',
+    accent: 'text-gray-900',
     light: 'text-gray-900'
   }
 
@@ -71,7 +71,6 @@ export function RichSection({
             
             <div className={cn(
               "prose prose-lg max-w-none",
-              variant === 'dark' ? 'prose-invert' : '',
               "prose-headings:font-serif prose-headings:tracking-wide",
               "prose-p:leading-relaxed prose-p:text-lg"
             )}>

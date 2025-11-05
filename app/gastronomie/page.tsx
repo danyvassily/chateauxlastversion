@@ -424,7 +424,7 @@ export default function GastronomiePage() {
               <div className="relative">
                 <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/Page/Notre vignoble - manque 1 photo/vignes.jpg"
+                    src="/PHOTOS-WEB-LASTOURS/VIGNES/vignes.jpg"
                     alt="Vignoble gaillacois"
                     fill
                     className="object-cover"

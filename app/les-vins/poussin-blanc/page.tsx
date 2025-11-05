@@ -12,8 +12,8 @@ export default function PoussinBlancPage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page Cuvée poussin Blanc/BLANC POUSSIN.jpg"
-      pdfPath="/Page/Page Cuvée poussin Blanc/FT_poussin_moelleux_2024.pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme poussin/Page Cuvée poussin Blanc/POUSSIN BLANC.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme poussin/Page Cuvée poussin Blanc/FT_poussin_moelleux_2024.pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page Cuvée poussin Blanc/BLANC POUSSIN.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme poussin/Page Cuvée poussin Blanc/POUSSIN BLANC.jpg"],
     },
   }
 }

@@ -43,6 +43,47 @@
   to = "/"
   status = 301
 
+[[redirects]]
+  from = "/la-vigne"
+  to = "/le-cycle-de-la-vigne/"
+  status = 301
+
+[[redirects]]
+  from = "/savoir-faire/vigne"
+  to = "/le-cycle-de-la-vigne/"
+  status = 301
+
+# Redirections SEO : Les Chais / Notre Chai → De la Vigne à la bouteille
+[[redirects]]
+  from = "/les-chais"
+  to = "/de-la-vigne-a-la-bouteille/"
+  status = 301
+
+[[redirects]]
+  from = "/les-chais/"
+  to = "/de-la-vigne-a-la-bouteille/"
+  status = 301
+
+[[redirects]]
+  from = "/savoir-faire/chais"
+  to = "/de-la-vigne-a-la-bouteille/"
+  status = 301
+
+[[redirects]]
+  from = "/savoir-faire/chais/"
+  to = "/de-la-vigne-a-la-bouteille/"
+  status = 301
+
+[[redirects]]
+  from = "/notre-chai"
+  to = "/de-la-vigne-a-la-bouteille/"
+  status = 301
+
+[[redirects]]
+  from = "/notre-chai/"
+  to = "/de-la-vigne-a-la-bouteille/"
+  status = 301
+
 # Configuration des en-têtes de sécurité
 [[headers]]
   for = "/*"

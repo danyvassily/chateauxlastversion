@@ -81,7 +81,7 @@ export default function ReservationPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden" style={{ minHeight: 'calc(100vh - 80px)' }}>
         <div className="absolute inset-0">
           <Image
             src="/chateau-lastours-hero.jpg"
@@ -93,43 +93,36 @@ export default function ReservationPage() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
         <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
-          <div className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-wine-gold/20 backdrop-blur-sm rounded-full text-wine-gold font-medium text-sm">
-              <Wine className="w-4 h-4" />
-              Réservation en ligne
-            </span>
-          </div>
           <h1 className="text-5xl md:text-7xl font-display mb-6 text-balance leading-tight">
             Réservez votre
-            <span className="block text-wine-gold">Expérience</span>
+            <span className="block text-wine-gold">Visite</span>
           </h1>
           <p className="text-xl md:text-2xl text-pretty opacity-90 max-w-3xl mx-auto leading-relaxed">
-            Découvrez l'art de la dégustation au cœur de l'AOC Gaillac, 
-            dans un cadre d'exception où tradition et élégance se rencontrent
+            Savourez l'instant Lastours : un voyage, une découverte, une dégustation où le plaisir et l'élégance se rencontrent
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-8 flex justify-center">
             <Button 
               size="lg" 
-              className="bg-wine-gold hover:bg-wine-gold/90 text-wine-dark font-semibold px-8 py-3"
-              onClick={() => document.getElementById('experiences')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-wine-gold hover:bg-wine-gold/90 text-wine-dark font-semibold px-8 py-3 min-h-[44px]"
+              onClick={() => {
+                const target = document.getElementById('experiences')
+                if (target) {
+                  const headerHeight = 80 // Hauteur approximative du header
+                  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight
+                  window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+                  target.focus()
+                }
+              }}
             >
               Découvrir nos expériences
               <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-3"
-              onClick={() => document.getElementById('reservation-form')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Réserver maintenant
             </Button>
           </div>
         </div>
       </section>
 
       {/* Experiences */}
-      <section id="experiences" className="py-24 bg-gradient-to-b from-wine-cream/30 to-white">
+      <section id="experiences" className="py-24 bg-gradient-to-b from-wine-cream/30 to-white scroll-mt-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <div className="mb-4">
@@ -200,10 +193,16 @@ export default function ReservationPage() {
                     </div>
                   </div>
                   <Button 
-                    className="w-full mt-6 bg-wine-gold hover:bg-wine-gold/90 text-wine-dark font-semibold"
+                    className="w-full mt-6 bg-wine-gold hover:bg-wine-gold/90 text-wine-dark font-semibold min-h-[44px]"
                     onClick={() => {
                       updateFormData("experience", key)
-                      document.getElementById('reservation-form')?.scrollIntoView({ behavior: 'smooth' })
+                      const target = document.getElementById('reservation-form')
+                      if (target) {
+                        const headerHeight = 80
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+                        target.focus()
+                      }
                     }}
                   >
                     Choisir cette expérience
@@ -236,7 +235,7 @@ export default function ReservationPage() {
       </section>
 
       {/* Reservation Form */}
-      <section id="reservation-form" className="py-24 bg-gradient-to-b from-white to-wine-cream/20">
+      <section id="reservation-form" className="py-24 bg-gradient-to-b from-white to-wine-cream/20 scroll-mt-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">

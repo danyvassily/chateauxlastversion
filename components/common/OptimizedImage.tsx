@@ -31,6 +31,26 @@ const aspectRatioClasses = {
   auto: ""
 }
 
+const objectFitClasses = {
+  cover: "object-cover",
+  contain: "object-contain",
+  fill: "object-fill",
+  none: "object-none",
+  "scale-down": "object-scale-down"
+}
+
+const objectPositionClasses = {
+  center: "object-center",
+  top: "object-top",
+  bottom: "object-bottom",
+  left: "object-left",
+  right: "object-right",
+  "top-left": "object-left-top",
+  "top-right": "object-right-top",
+  "bottom-left": "object-left-bottom",
+  "bottom-right": "object-right-bottom"
+}
+
 export function OptimizedImage({
   src,
   alt,
@@ -64,6 +84,10 @@ export function OptimizedImage({
     setIsLoading(false)
   }
 
+  // Utiliser les classes Tailwind appropriées
+  const objectFitClass = objectFitClasses[objectFit] || "object-cover"
+  const objectPositionClass = objectPositionClasses[objectPosition as keyof typeof objectPositionClasses] || "object-center"
+
   if (fill) {
     return (
       <div className={cn(
@@ -79,8 +103,8 @@ export function OptimizedImage({
           alt={alt}
           fill
           className={cn(
-            `object-${objectFit}`,
-            `object-${objectPosition}`,
+            objectFitClass,
+            objectPositionClass,
             "transition-opacity duration-300",
             isLoading ? "opacity-0" : "opacity-100",
             hasError && "grayscale",
@@ -93,6 +117,10 @@ export function OptimizedImage({
           blurDataURL={blurDataURL}
           onError={handleError}
           onLoad={handleLoad}
+          style={{
+            objectFit: objectFit,
+            objectPosition: objectPosition
+          }}
         />
       </div>
     )
@@ -113,8 +141,8 @@ export function OptimizedImage({
         width={width}
         height={height}
         className={cn(
-          `object-${objectFit}`,
-          `object-${objectPosition}`,
+          objectFitClass,
+          objectPositionClass,
           "transition-opacity duration-300",
           isLoading ? "opacity-0" : "opacity-100",
           hasError && "grayscale",
@@ -127,6 +155,10 @@ export function OptimizedImage({
         blurDataURL={blurDataURL}
         onError={handleError}
         onLoad={handleLoad}
+        style={{
+          objectFit: objectFit,
+          objectPosition: objectPosition
+        }}
       />
     </div>
   )

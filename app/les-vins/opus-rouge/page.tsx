@@ -12,8 +12,8 @@ export default function OpusRougePage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page Cuvée Opus Rouge/ROUGE OPUS.jpg"
-      pdfPath="/Page/Page Cuvée Opus Rouge/FT_rouge_opus_2021.pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme Opus/Page Cuvée Opus Rouge/ROUGE OPUS.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme Opus/Page Cuvée Opus Rouge/FT_rouge_opus_2021.pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page Cuvée Opus Rouge/ROUGE OPUS.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme Opus/Page Cuvée Opus Rouge/ROUGE OPUS.jpg"],
     },
   }
 }

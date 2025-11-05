@@ -2,7 +2,7 @@
 import animate from "tailwindcss-animate";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: false, // Désactivé complètement - mode clair uniquement
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -104,6 +104,13 @@ const config = {
       },
       scale: {
         130: "1.3",
+      },
+      spacing: {
+        'rhythm': '24px',
+        'rhythm-0.5': '12px',
+        'rhythm-1': '24px',
+        'rhythm-2': '48px',
+        'rhythm-3': '72px',
       },
     },
   },

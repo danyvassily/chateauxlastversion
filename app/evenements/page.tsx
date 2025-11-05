@@ -1,14 +1,24 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Calendar, Clock, Users, Wine, Music, Utensils } from "lucide-react"
-import { getAllEvents } from "@/lib/events-data"
+import { getAllEvents, getUpcomingEvents } from "@/lib/events-data"
+import { HeroStandard } from "@/components/common/HeroStandard"
+
+/**
+ * Page "Nos Événements"
+ * 
+ * ✅ Textes extraits depuis ASSET : /public/Page/Nos evenements - ok/Page nos evenement Fr.docx
+ * ✅ Images depuis ASSET : /public/Page/Nos evenements - ok/
+ */
 
 export default function EvenementsPage() {
-  const events = getAllEvents()
+  // Filtrer les événements passés (nous sommes en novembre 2024)
+  const today = new Date()
+  today.setHours(0, 0, 0, 0) // Remettre à minuit pour comparer les dates seulement
+  const events = getUpcomingEvents(today)
 
   const getEventIcon = (type: string) => {
     switch (type) {
@@ -29,20 +39,93 @@ export default function EvenementsPage() {
 
   return (
     <div className="min-h-screen">
-      <Header />
-
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden mt-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/wine-events-celebration-vineyard-gathering.png')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-display mb-4 text-balance">Événements</h1>
-          <p className="text-xl md:text-2xl text-pretty opacity-90">Partagez des moments d'exception au domaine</p>
+      <HeroStandard
+        imageSrc="/Page/Nos evenements - ok/soiree-partenaire-rugby-chateau-lastours-gaillac-france.jpg"
+        title="Au Fil des Saisons – Les Rendez-vous du Château Lastours"
+        subtitle="Joyau viticole et patrimonial du Sud-Ouest et de Gaillac, le Domaine Lastours vous invite à vivre une immersion authentique dans l'art de vivre à la française."
+        className="-mt-20"
+      />
+
+      {/* Introduction */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty mb-8">
+              Niché au cœur de paysages viticoles d'exception, notre domaine est un lieu de partage où chaque saison révèle des moments conviviaux et riches en émotions.
+            </p>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
+              Tout au long de l'année, nous vous proposons une diversité d'expériences soigneusement conçues pour célébrer la richesse de notre terroir et la passion qui anime notre équipe.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Types d'événements */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display mb-6">Découvrez notre Calendrier d'Événements</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48 bg-muted">
+                <Image
+                  src="/Page/Nos evenements - ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"
+                  alt="Dégustations de vins d'exception au Château Lastours"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <CardContent className="p-8">
+                <Wine className="w-12 h-12 mx-auto mb-4 text-accent" />
+                <h3 className="text-xl font-heading mb-4">Dégustations de vins d'exception</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Explorez nos crus emblématiques et nos cuvées élaborées avec soin, accompagnés par nos sommeliers multilingues.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48 bg-muted">
+                <Image
+                  src="/Page/Nos evenements - ok/pigeonnier-renove-domaine-viticole-gaillac-france.jpg"
+                  alt="Visites guidées du château et des vignobles"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <CardContent className="p-8">
+                <Users className="w-12 h-12 mx-auto mb-4 text-accent" />
+                <h3 className="text-xl font-heading mb-4">Visites guidées du château et des vignobles</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Laissez-vous conter l'histoire et les secrets de notre domaine, dans un cadre naturel et élégant.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48 bg-muted">
+                <Image
+                  src="/Page/Nos evenements - ok/concert-musicale-sous-tente-nomade-gaillac-france.jpg"
+                  alt="Concerts en plein air et marchés locaux"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <CardContent className="p-8">
+                <Music className="w-12 h-12 mx-auto mb-4 text-accent" />
+                <h3 className="text-xl font-heading mb-4">Concerts en plein air & marchés locaux</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Profitez de soirées festives alliant musique, convivialité et saveurs authentiques de la région.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -50,9 +133,9 @@ export default function EvenementsPage() {
       <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display mb-6">Événements à Venir</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Découvrez notre calendrier d'événements exclusifs et partagez des moments inoubliables
+            <h2 className="text-4xl md:text-5xl font-display mb-6">Programmation et Réservations en Ligne</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Pour vous offrir la meilleure expérience, notre programmation détaillée est directement consultable ici, sur cette même page. Chaque événement est accompagné d'informations précises — horaires, descriptifs, intervenants — ainsi que d'un système de réservation simple et sécurisé.
             </p>
           </div>
 
@@ -64,11 +147,13 @@ export default function EvenementsPage() {
                 return (
                   <Card key={event.id} className="overflow-hidden">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                      <div className="aspect-[4/3] lg:aspect-auto bg-muted">
-                        <img
-                          src={event.image || "/wine-tasting-event.png"}
+                      <div className="relative aspect-[4/3] lg:aspect-auto bg-muted">
+                        <Image
+                          src={event.image || "/Page/Nos evenements - ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"}
                           alt={event.title}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                       </div>
                       <div className="p-8 flex flex-col justify-center">
@@ -109,8 +194,8 @@ export default function EvenementsPage() {
 
                         <div className="flex items-center justify-between">
                           <div className="text-2xl font-display text-accent">{event.price}</div>
-                          <Button asChild>
-                            <Link href="/reservation">
+                          <Button asChild className="min-h-[44px] focus:ring-2 focus:ring-accent focus:ring-offset-2">
+                            <Link href="/evenements/reservation">
                               Réserver
                               <ArrowRight className="ml-2 w-4 h-4" />
                             </Link>
@@ -130,6 +215,9 @@ export default function EvenementsPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display mb-6">Tous nos Événements</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Vous pouvez réserver vos places à tout moment, en toute tranquillité, depuis n'importe où dans le monde. Que vous cherchiez à approfondir vos connaissances œnologiques, à savourer un moment artistique ou simplement à partager une belle soirée avec vos proches, vous trouverez l'événement qui vous correspond parfaitement.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -137,11 +225,13 @@ export default function EvenementsPage() {
               const IconComponent = getEventIcon(event.type)
               return (
                 <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-[4/3] bg-muted">
-                    <img
-                      src={event.image || "/wine-tasting-event.png"}
+                  <div className="relative aspect-[4/3] bg-muted">
+                    <Image
+                      src={event.image || "/Page/Nos evenements - ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"}
                       alt={event.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <CardContent className="p-6">
@@ -180,8 +270,8 @@ export default function EvenementsPage() {
 
                     <div className="flex items-center justify-between">
                       <div className="text-lg font-heading text-accent">{event.price}</div>
-                      <Button size="sm" asChild>
-                        <Link href="/reservation">Réserver</Link>
+                      <Button size="sm" asChild className="min-h-[44px] focus:ring-2 focus:ring-accent focus:ring-offset-2">
+                        <Link href="/evenements/reservation">Réserver</Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -196,44 +286,63 @@ export default function EvenementsPage() {
       <section className="py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display mb-6">Événements Privés</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Organisez votre événement privé dans le cadre exceptionnel de notre domaine
+            <h2 className="text-4xl md:text-5xl font-display mb-6">Une Expérience Accessible à Tous</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Notre équipe multilingue est disponible pour vous accompagner et répondre à vos besoins, qu'importe votre origine ou vos attentes. Le Château Lastours, c'est l'alliance d'un patrimoine historique exceptionnel avec une ouverture moderne et chaleureuse.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="text-center">
+            <Card className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48 bg-muted">
+                <Image
+                  src="/Page/Nos evenements - ok/pigeonnier-renove-domaine-viticole-gaillac-france.jpg"
+                  alt="Séminaires d'Entreprise au Château Lastours"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-8 h-8 text-accent-foreground" />
-                </div>
+                <Users className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <h3 className="text-xl font-heading mb-4">Séminaires d'Entreprise</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Organisez vos séminaires et team building dans un cadre unique avec dégustation et activités sur
-                  mesure.
+                  Organisez vos séminaires et team building dans un cadre unique avec dégustation et activités sur mesure.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48 bg-muted">
+                <Image
+                  src="/Page/Nos evenements - ok/soiree-partenaire-rugby-chateau-lastours-gaillac-france.jpg"
+                  alt="Mariages & Réceptions au Château Lastours"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Utensils className="w-8 h-8 text-accent-foreground" />
-                </div>
+                <Utensils className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <h3 className="text-xl font-heading mb-4">Mariages & Réceptions</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Célébrez les moments les plus importants de votre vie dans la magie de nos vignobles et chais
-                  historiques.
+                  Célébrez les moments les plus importants de votre vie dans la magie de nos vignobles et chais historiques.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48 bg-muted">
+                <Image
+                  src="/Page/Nos evenements - ok/concert-musicale-sous-tente-nomade-gaillac-france.jpg"
+                  alt="Dégustations Privées au Château Lastours"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Wine className="w-8 h-8 text-accent-foreground" />
-                </div>
+                <Wine className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <h3 className="text-xl font-heading mb-4">Dégustations Privées</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Organisez des dégustations privées pour vos invités avec l'accompagnement de nos experts.
@@ -243,12 +352,26 @@ export default function EvenementsPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" asChild>
-              <Link href="/reservation">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 text-pretty">
+              Nous vous invitons à parcourir notre calendrier et à réserver dès aujourd'hui votre prochaine expérience parmi nous. Chaque visite est une promesse de découvertes, d'échanges et de moments précieux dans un écrin d'authenticité et d'élégance.
+            </p>
+            <Button size="lg" asChild className="min-h-[44px] focus:ring-2 focus:ring-accent focus:ring-offset-2">
+              <Link href="/evenements/organiser">
                 Demander un Devis
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Final */}
+      <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-xl md:text-2xl font-display text-foreground leading-relaxed text-pretty">
+              Vivez avec nous la passion du vin, l'émerveillement culturel et la beauté du terroir – au Château Lastours, chaque saison est une célébration de la vie.
+            </p>
           </div>
         </div>
       </section>

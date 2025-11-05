@@ -12,8 +12,8 @@ export default function MethodeBlancPage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page Méthode Blanche/LA METHODE BLANC.jpg"
-      pdfPath="/Page/Page Méthode Blanche/FT_la_méthode_blanc.pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/LA METHODE BLANC.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/FT_la_méthode_blanc.pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page Méthode Blanche/LA METHODE BLANC.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/LA METHODE BLANC.jpg"],
     },
   }
 }

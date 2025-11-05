@@ -1,4 +1,3 @@
-import { Header } from "@/components/header"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -25,9 +24,7 @@ export default async function EventPage({ params }: EventPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
-      <main className="pt-20">
+      <main>
         {/* Hero */}
         <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-black/40" />
@@ -65,8 +62,8 @@ export default async function EventPage({ params }: EventPageProps) {
                   )}
                 </div>
 
-                <Button asChild className="w-full">
-                  <Link href="/reservation">
+                <Button asChild className="w-full min-h-[44px] focus:ring-2 focus:ring-accent focus:ring-offset-2">
+                  <Link href="/evenements/reservation">
                     Réserver
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>

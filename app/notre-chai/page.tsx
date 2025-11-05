@@ -1,9 +1,6 @@
 import { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { SectionTitle } from "@/components/common/SectionTitle";
-import { TextBlock } from "@/components/common/TextBlock";
-import { CinematicImage } from "@/components/common/CinematicImage";
-import { QuoteRibbon } from "@/components/common/QuoteRibbon";
 import { TransitionLink } from "@/components/gsap/TransitionLink";
 import { SPACING } from "@/lib/constants";
 
@@ -14,22 +11,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Notre Chai | Château Lastours",
     description: "L'art de la vinification haut de gamme au cœur de Gaillac",
-    images: ["/PHOTOS-WEB-LASTOURS/VINIFICATION/Capture ameyric prod.JPG"],
+    images: ["/Page/Notre Chai - manque 1 photo/chai-a-barrique-chateau-lastours-gaillac-france.jpg"],
   },
 };
 
-// Contenu authentique de la vinification du domaine
+// Contenu authentique de la vinification du domaine - avec nouvelles images
 const vinificationSections = [
   {
-    id: "extraction",
+    id: "vendange",
     text: {
-      kicker: "Vinification d'Excellence",
-      title: "La fraîcheur préservée, l'expression du terroir",
-      body: "Au Château Lastours, la vinification commence dès la nuit tombée, par une sélection minutieuse des plus belles grappes issues de cépages autochtones, reflets vivants du terroir de Gaillac et du Sud-Ouest de la France. Les raisins blancs et rosés sont pressés délicatement puis refroidis à 4°C pour préserver toute la fraîcheur et la pureté aromatique. Cette extraction à froid, signature de notre domaine viticole, sublime les notes d'agrumes, de fleurs blanches et de fruits frais, tout en garantissant une finesse cristalline, sans intervention mécanique superflue."
+      kicker: "De la Vigne à la Bouteille",
+      title: "Les Vendanges : Première Sélection",
+      body: "Au Château Lastours, la vinification commence dès la nuit tombée, par une sélection minutieuse des plus belles grappes issues de cépages autochtones, reflets vivants du terroir de Gaillac et du Sud-Ouest de la France. Les raisins sont récoltés à la main, à maturité optimale, pour préserver toute la fraîcheur et la pureté aromatique."
     },
     image: {
-      src: "/Page/Notre Chai - manque 1 photo/Capture ameyric prod.JPG",
-      alt: "Pressurage à froid des raisins blancs au Château Lastours",
+      src: "/Page/Notre Chai - manque 1 photo/vendange-raisin-rouge.jpg",
+      alt: "Vendange de raisins rouges au Château Lastours",
       ratio: "21/9" as const
     },
     layout: "text-first"
@@ -37,13 +34,41 @@ const vinificationSections = [
   {
     id: "fermentation",
     text: {
-      kicker: "Savoir-Faire Traditionnel",
-      title: "L'intensité, la structure et la couleur",
-      body: "Pour les rouges, l'éraflage soigné et la macération pelliculaire révèlent la profondeur, la structure tannique et la couleur intense qui font la renommée des vins de Gaillac. Chaque cuvée est le fruit d'un équilibre subtil entre tradition et innovation, où la fermentation alcoolique est menée à basse température pour préserver la tension, la vivacité et l'expression du terroir. La fermentation malolactique, systématique pour les rouges et sélective pour les blancs, affine la texture, adoucit les tanins et apporte une rondeur gourmande, tout en maintenant la fraîcheur emblématique du vignoble français."
+      kicker: "Vinification d'Excellence",
+      title: "La Fermentation : Transformation Alchimique",
+      body: "Les raisins blancs et rosés sont pressés délicatement puis refroidis à 4°C pour préserver toute la fraîcheur et la pureté aromatique. Cette extraction à froid, signature de notre domaine viticole, sublime les notes d'agrumes, de fleurs blanches et de fruits frais, tout en garantissant une finesse cristalline. Pour les rouges, l'éraflage soigné et la macération pelliculaire révèlent la profondeur, la structure tannique et la couleur intense qui font la renommée des vins de Gaillac."
     },
     image: {
-      src: "/Page/Notre Chai - manque 1 photo/ecoulage et décuvage.jpg",
-      alt: "Fermentation des rouges au Château Lastours",
+      src: "/Page/Notre Chai - manque 1 photo/allee-de-cuves-inox-chai-a-vinification.jpeg",
+      alt: "Cuves inox pour la vinification au Château Lastours",
+      ratio: "16/9" as const
+    },
+    layout: "image-first"
+  },
+  {
+    id: "fermentation-malo",
+    text: {
+      kicker: "Savoir-Faire Traditionnel",
+      title: "La Fermentation Malolactique : Affinage et Rondeur",
+      body: "La fermentation malolactique, systématique pour les rouges et sélective pour les blancs, affine la texture, adoucit les tanins et apporte une rondeur gourmande, tout en maintenant la fraîcheur emblématique du vignoble français. Cette étape cruciale transforme l'acide malique en acide lactique, stabilisant la structure et révélant la complexité aromatique de chaque cuvée."
+    },
+    image: {
+      src: "/Page/Notre Chai - manque 1 photo/fermentation-malo-lactique-chateau-lastours-france.jpg",
+      alt: "Fermentation malolactique au Château Lastours",
+      ratio: "21/9" as const
+    },
+    layout: "text-first"
+  },
+  {
+    id: "decuvage",
+    text: {
+      kicker: "Art de la Vinification",
+      title: "Le Décuvage : Séparation et Précis",
+      body: "Après la macération, vient l'écoulage : nous séparons le « vin de goutte », synonyme de finesse, du « vin de presse », plus puissant. Les marcs issus de cette opération sont délicatement pressés afin d'extraire chaque goutte de jus. Chacun de ces jus sera traité selon ses qualités pour composer nos meilleures cuvées."
+    },
+    image: {
+      src: "/Page/Notre Chai - manque 1 photo/décuvage-cuve-inox-chateau-lastours-gaillac-france.jpeg",
+      alt: "Décuvage en cuve inox au Château Lastours",
       ratio: "16/9" as const
     },
     layout: "image-first"
@@ -51,27 +76,55 @@ const vinificationSections = [
   {
     id: "elevage",
     text: {
-      kicker: "Art de l'Élevage", 
-      title: "L'élevage, l'art de la discrétion",
+      kicker: "Art de l'Élevage",
+      title: "L'Élevage : L'Art de la Discrétion",
       body: "Nos vins blancs et rosés reposent en cuves inox pour exalter la minéralité, la pureté du fruit et la tension naturelle du terroir. Les rouges bénéficient d'un élevage soigné en barriques françaises, demi-muids ou pièces, toujours en rotation, pour éviter toute standardisation et privilégier l'authenticité. La micro-oxygénation subtile affine les tanins et révèle la complexité aromatique, sans jamais masquer l'identité du millésime ou du sol."
     },
     image: {
-      src: "/Page/Notre Chai - manque 1 photo/barriques et barboteurs.jpg",
+      src: "/Page/Notre Chai - manque 1 photo/chai-a-barrique-chateau-lastours-gaillac-france.jpg",
       alt: "Élevage en barrique au Château Lastours",
       ratio: "21/9" as const
     },
     layout: "text-first"
   },
   {
+    id: "ouillage",
+    text: {
+      kicker: "Soin Meticuleux",
+      title: "L'Ouillage : Gestes Quotidiens",
+      body: "Parmi nos gestes quotidiens en cave, l'ouillage tient une place centrale : il s'agit de compléter le niveau des barriques pour compenser les pertes naturelles dues à l'évaporation et éviter toute oxydation. Ce soin méticuleux préserve l'équilibre et la finesse de nos vins durant toute la phase d'élevage."
+    },
+    image: {
+      src: "/Page/Notre Chai - manque 1 photo/ouillage-vin-rouge-fut-de-chene-francaise.jpeg",
+      alt: "Ouillage en barrique au Château Lastours",
+      ratio: "16/9" as const
+    },
+    layout: "image-first"
+  },
+  {
     id: "assemblage",
     text: {
       kicker: "Signature Lastours",
-      title: "L'assemblage, la signature Lastours",
-      body: "L'assemblage, véritable signature du Château Lastours, est un travail d'orfèvre où chaque cépage – Duras, Braucol, Mauzac – chaque parcelle d'argile, de calcaire ou de boulbène, et chaque type d'élevage, sont harmonieusement mariés pour créer des vins vibrants, élégants et résolument modernes. Nos cuvées expriment la diversité, la richesse et la typicité du vignoble de Gaillac, séduisant aussi bien les amateurs curieux que les passionnés exigeants à la recherche d'un vin français authentique."
+      title: "L'Assemblage : La Signature Lastours",
+      body: "L'assemblage, véritable signature du Château Lastours, est un travail d'orfèvre où chaque cépage – Duras, Braucol, Mauzac – chaque parcelle d'argile, de calcaire ou de boulbène, et chaque type d'élevage, sont harmonieusement mariés pour créer des vins vibrants, élégants et résolument modernes. Nos cuvées expriment la diversité, la richesse et la typicité du vignoble de Gaillac."
     },
     image: {
-      src: "/Page/Notre Chai - manque 1 photo/IMG_20220902_190142 (2).jpg",
+      src: "/Page/Notre Chai - manque 1 photo/assemblage-vin-chai-a-barrique-chateau-lastours-gaillac-france.jpeg",
       alt: "Assemblage des vins au Château Lastours",
+      ratio: "21/9" as const
+    },
+    layout: "text-first"
+  },
+  {
+    id: "embouteillage",
+    text: {
+      kicker: "Finalisation",
+      title: "L'Embouteillage : Dernière Étape",
+      body: "Toutes les étapes mènent ici ! Nous assurons nous-mêmes la mise en bouteille, sur la propriété, sous atmosphère neutre. Cette attention préserve toute la fraîcheur aromatique de nos vins et garantit leur qualité jusqu'à votre table. Chaque bouteille est une invitation à un voyage sensoriel authentique, qui célèbre la richesse du Sud-Ouest et la finesse des vins de Gaillac."
+    },
+    image: {
+      src: "/Page/Notre Chai - manque 1 photo/chaine-d-emouteillage-methode-ancestrale-gaillac.jpeg",
+      alt: "Embouteillage méthode ancestrale au Château Lastours",
       ratio: "16/9" as const
     },
     layout: "image-first"
@@ -89,270 +142,150 @@ export default function NotreChai() {
       <div className="fixed inset-0 opacity-8 pointer-events-none texture-grain">
       </div>
 
-      {/* Hero Section Amélioré */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Image de fond avec parallax subtil */}
-        <div className="absolute inset-0">
-          <CinematicImage
-            src="/Page/Notre Chai - manque 1 photo/Capture ameyric prod.JPG"
-            alt="Notre Chai - Château Lastours"
-            className="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-700 hover:scale-100"
-          />
-          {/* Overlay gradients multiples pour plus de profondeur */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
-          {/* Vignette subtile */}
-          <div className="absolute inset-0 vignette-radial" />
-        </div>
-        
-        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 space-y-8">
-          {/* Badges de certification en haut */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8 opacity-90">
-            <span className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 text-sm font-medium">
-              AOP Gaillac
-            </span>
-            <span className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 text-sm font-medium">
-              IGP Sud-Ouest
-            </span>
-            <span className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 text-sm font-medium">
-              HVE
-            </span>
-            <span className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 text-sm font-medium">
-              Vignobles & Découvertes
-            </span>
-          </div>
-
-          {/* Titre principal amélioré */}
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <p className="text-lg md:text-xl font-light tracking-wider uppercase opacity-80 text-amber-200">
-                Vinification d'Excellence
-              </p>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight">
-                Notre{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-400">
-                  Chai
-                </span>
-              </h1>
-            </div>
-            
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light italic opacity-90 max-w-4xl mx-auto leading-relaxed">
-              L'Alchimie Précise – Fondement de notre Philosophie
-            </h2>
-          </div>
-
-          {/* Description enrichie */}
-          <div className="space-y-6 max-w-5xl mx-auto">
-            <p className="text-xl md:text-2xl font-light leading-relaxed opacity-95">
-              <span className="text-amber-200 font-semibold">De la Grappe à la Bouteille : Le Souffle du Terroir</span>
-            </p>
-            
-            <p className="text-lg md:text-xl leading-relaxed opacity-90">
-              Découvrez l'art de la vinification haut de gamme au Château Lastours, 
-              au cœur de Gaillac, où chaque millésime devient une aventure 
-              sensorielle et un hommage à la tradition viticole française.
-            </p>
-
-            {/* Points clés en highlight */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-4xl mx-auto">
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center mb-3">
-                  <span className="text-2xl">🍇</span>
-                </div>
-                <h3 className="font-semibold text-amber-200">Extraction à Froid</h3>
-                <p className="text-sm opacity-80">Préservation des arômes délicats</p>
-              </div>
-              
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center mb-3">
-                  <span className="text-2xl">🏺</span>
-                </div>
-                <h3 className="font-semibold text-amber-200">Élevage Traditionnel</h3>
-                <p className="text-sm opacity-80">Barriques françaises et cuves inox</p>
-              </div>
-              
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center mb-3">
-                  <span className="text-2xl">🎯</span>
-                </div>
-                <h3 className="font-semibold text-amber-200">Assemblage Expert</h3>
-                <p className="text-sm opacity-80">Signature unique du terroir</p>
+      {/* Hero Section - Style élégant */}
+      <section className="relative py-24 lg:py-40 xl:py-48 overflow-hidden z-10">
+        <div className={cn(SPACING.container, "relative z-10")}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Contenu texte hero */}
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="py-12 lg:py-16">
+                <SectionTitle
+                  kicker="Vinification d'Excellence"
+                  title="Notre Chai"
+                  subtitle="De la Grappe à la Bouteille : Le Souffle du Terroir. Découvrez l'art de la vinification haut de gamme au Château Lastours, au cœur de Gaillac, où chaque millésime devient une aventure sensorielle et un hommage à la tradition viticole française."
+                  align="left"
+                />
               </div>
             </div>
-          </div>
 
-          {/* Call-to-action avec flèche de défilement */}
-          <div className="mt-12 space-y-6">
-            <TransitionLink
-              href="/reservation"
-              className="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-amber-500/20 hover:scale-105"
-            >
-              Visitez Notre Chai
-              <span className="text-xl">→</span>
-            </TransitionLink>
-            
-            {/* Flèche de défilement animée */}
-            <div className="flex justify-center pt-8">
-              <div className="animate-bounce">
-                <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
+            {/* Image hero */}
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="relative h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-all duration-700 group">
+                <img
+                  src="/Page/Notre Chai - manque 1 photo/elevage-vin-chai-a-barrique-chateau-lastours.JPG"
+                  alt="Notre Chai - Château Lastours"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-stone-800/20" />
+                <div className="absolute inset-0 grain-subtle" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Indicateur de progression visuel */}
-        <div className="absolute bottom-8 left-8 hidden lg:block">
-          <div className="flex items-center space-x-4 text-white/60 text-sm">
-            <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
-            <span>Défilez pour découvrir nos techniques</span>
-          </div>
-        </div>
+        {/* Espace aéré après le hero */}
+        <div className="h-16 lg:h-24"></div>
       </section>
 
-      {/* Sections principales avec les vraies photos */}
+      {/* Sections panoramiques - Style élégant sans icônes */}
       {vinificationSections.map((section, index) => (
         <section 
-          key={section.id} 
-          className={cn(
-            "relative py-24",
-            index % 2 === 0 ? "bg-white" : "bg-gray-50"
-          )}
+          key={section.id}
+          className="relative z-10 mb-12 lg:mb-16 xl:mb-20"
         >
-          <div className="container mx-auto px-4">
-            <div className={cn(
-              "grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto",
-              section.layout === "image-first" ? "lg:grid-flow-col-dense" : ""
-            )}>
-              {/* Texte */}
-              <div className={cn(
-                "space-y-6",
-                section.layout === "image-first" ? "lg:col-start-2" : "lg:col-start-1"
-              )}>
-                <TextBlock
-                  kicker={section.text.kicker}
-                  title={section.text.title}
-                  body={section.text.body}
-                />
-              </div>
+          {/* Image panoramique pleine largeur */}
+          <div className="relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
+            <img
+              src={section.image.src}
+              alt={section.image.alt}
+              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+            />
+            
+            {/* Overlay gradient subtil */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            
+            {/* Grain texture */}
+            <div className="absolute inset-0 opacity-[0.03] texture-grain-fine">
+            </div>
 
-              {/* Image */}
-              <div className={cn(
-                "relative",
-                section.layout === "image-first" ? "lg:col-start-1" : "lg:col-start-2"
-              )}>
-                <CinematicImage
-                  src={section.image.src}
-                  alt={section.image.alt}
-                  ratio={section.image.ratio}
-                  className="rounded-2xl shadow-2xl"
-                />
+            {/* Texte en overlay - Position selon layout */}
+            <div className={`absolute inset-0 flex items-end ${section.layout === "text-first" ? "justify-start" : "justify-end"}`}>
+              <div className={`p-8 lg:p-16 xl:p-20 max-w-2xl ${section.layout === "text-first" ? "text-left" : "text-right"}`}>
+                {/* Kicker */}
+                <div className="mb-6">
+                  <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-md text-white text-xs font-bold tracking-[0.2em] uppercase border border-white/20">
+                    {section.text.kicker}
+                  </span>
+                </div>
+                
+                {/* Titre */}
+                <h2 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white tracking-[0.02em] leading-[1.1] mb-8">
+                  {section.text.title}
+                </h2>
+                
+                {/* Corps de texte */}
+                <p className="text-lg lg:text-xl leading-relaxed text-white/90 font-light tracking-wide max-w-xl">
+                  {section.text.body}
+                </p>
               </div>
             </div>
           </div>
         </section>
       ))}
 
-      {/* Section photos du chai avec nouvelles images */}
-      <section className="py-24 bg-gray-100">
-        <div className="container mx-auto px-4">
+      {/* Section galerie des installations */}
+      <section className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative z-10">
+        <div className={cn(SPACING.container)}>
           <div className="max-w-6xl mx-auto">
             <SectionTitle
               kicker="Nos Installations"
               title="Au Cœur de Notre Chai"
-              subtitle="Découvrez nos équipements et techniques de vinification"
+              subtitle="Équipements et techniques de vinification d'exception"
               className="text-center mb-16"
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="space-y-6">
-                <CinematicImage
-                  src="/Page/Notre Chai - manque 1 photo/barriques et barboteurs.jpg"
-                  alt="Barriques et barboteurs au Château Lastours"
-                  ratio="16/9"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="space-y-3">
-                  <h3 className="text-xl font-serif font-bold">Élevage en Barriques</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Nos barriques françaises permettent un élevage délicat qui apporte structure et complexité à nos vins rouges.
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {/* Grande image principale */}
+              <div className="md:col-span-2 lg:col-span-1">
+                <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl group">
+                  <img
+                    src="/Page/Notre Chai - manque 1 photo/chai-a-barrique-chateau-lastours-gaillac-france.jpg"
+                    alt="Chai à barriques Château Lastours"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="text-2xl font-serif font-light text-white mb-2">Élevage en Barriques</h3>
+                    <p className="text-white/90 font-light">
+                      Nos barriques françaises permettent un élevage délicat qui apporte structure et complexité à nos vins rouges.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <CinematicImage
-                  src="/Page/Notre Chai - manque 1 photo/ecoulage et décuvage.jpg"
-                  alt="Écoulage et décuvage au Château Lastours"
-                  ratio="16/9"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="space-y-3">
-                  <h3 className="text-xl font-serif font-bold">Écoulage et Décuvage</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Étapes cruciales de la vinification en rouge, effectuées avec précision pour préserver la qualité du vin.
-                  </p>
+              {/* Deuxième image */}
+              <div className="md:col-span-1">
+                <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl group">
+                  <img
+                    src="/Page/Notre Chai - manque 1 photo/allee-de-cuves-inox-chai-a-vinification.jpeg"
+                    alt="Cuves inox pour vinification"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="text-2xl font-serif font-light text-white mb-2">Cuves de Fermentation</h3>
+                    <p className="text-white/90 font-light">
+                      Nos cuves inox thermorégulées permettent un contrôle précis de la fermentation.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <CinematicImage
-                  src="/Page/Notre Chai - manque 1 photo/Embouteillage rosé methode.jpeg"
-                  alt="Embouteillage rosé méthode au Château Lastours"
-                  ratio="16/9"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="space-y-3">
-                  <h3 className="text-xl font-serif font-bold">Embouteillage</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    L'embouteillage de nos vins rosés méthode ancestrale, dernière étape avant la dégustation.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6 md:col-span-2 lg:col-span-1">
-                <CinematicImage
-                  src="/Page/Notre Chai - manque 1 photo/image00001.jpeg"
-                  alt="Installations modernes du chai"
-                  ratio="16/9"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="space-y-3">
-                  <h3 className="text-xl font-serif font-bold">Équipements Modernes</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Technologies de pointe au service de la tradition viticole pour une vinification d'excellence.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <CinematicImage
-                  src="/Page/Notre Chai - manque 1 photo/image00005.jpeg"
-                  alt="Cuves de fermentation"
-                  ratio="16/9"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="space-y-3">
-                  <h3 className="text-xl font-serif font-bold">Cuves de Fermentation</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Nos cuves inox thermorégulées permettent un contrôle précis de la fermentation.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <CinematicImage
-                  src="/Page/Notre Chai - manque 1 photo/image00021.jpeg"
-                  alt="Stockage et élevage"
-                  ratio="16/9"
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="space-y-3">
-                  <h3 className="text-xl font-serif font-bold">Stockage et Élevage</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Espaces climatisés pour l'élevage optimal de nos vins dans les meilleures conditions.
-                  </p>
+              {/* Troisième image */}
+              <div className="md:col-span-1">
+                <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl group">
+                  <img
+                    src="/Page/Notre Chai - manque 1 photo/assemblage-vin-chai-a-barrique-chateau-lastours-gaillac-france.jpeg"
+                    alt="Assemblage des vins"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="text-2xl font-serif font-light text-white mb-2">Assemblage Expert</h3>
+                    <p className="text-white/90 font-light">
+                      L'art de l'assemblage pour créer des cuvées d'exception.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -360,33 +293,37 @@ export default function NotreChai() {
         </div>
       </section>
 
-      {/* Quote Section */}
-      <QuoteRibbon
-        text="Chaque bouteille raconte une histoire, chaque millésime devient une aventure sensorielle et un hommage à la tradition viticole française."
-        author="Famille de Faramond"
-      />
-
-      {/* Call to action */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <SectionTitle
-              title="Vivez l'Alchimie d'une Vinification d'Exception"
-              subtitle="Plongez dans l'univers du Château Lastours : chaque bouteille raconte une histoire"
-              className="mb-8"
-            />
-
-            <div className="pt-6">
-              <TransitionLink
-                href="/reservation"
-                className="inline-block bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-xl"
-              >
-                Planifiez votre visite
-              </TransitionLink>
+      {/* Footer local - Style élégant */}
+      <section className="py-24 lg:py-32 xl:py-40 relative z-10 gradient-footer-premium">
+        <div className={SPACING.container}>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+              {/* Texte CTA */}
+              <div className="lg:col-span-7 text-center lg:text-left">
+                <div className="space-y-8">
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-slate-500/60 to-transparent mx-auto lg:mx-0" />
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-slate-900 tracking-[0.02em] font-light leading-[1.1]">
+                    Vivez l'Alchimie d'une Vinification d'Exception
+                  </h3>
+                  <p className="text-xl md:text-2xl leading-relaxed text-slate-600 font-light tracking-wide">
+                    Plongez dans l'univers du Château Lastours : chaque bouteille raconte une histoire
+                  </p>
+                </div>
+              </div>
+              
+              {/* CTA button */}
+              <div className="lg:col-span-5 text-center lg:text-right">
+                <TransitionLink 
+                  href="/reservation"
+                  className="inline-flex items-center px-16 py-6 bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 text-white font-light text-lg tracking-wide transition-all duration-700 backdrop-blur-sm hover:scale-[1.02] shadow-2xl group"
+                >
+                  Planifiez votre visite
+                </TransitionLink>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }

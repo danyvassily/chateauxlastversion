@@ -27,6 +27,12 @@ const aspectRatioClasses = {
   auto: ""
 }
 
+const objectFitClasses = {
+  cover: "object-cover",
+  contain: "object-contain",
+  fill: "object-fill"
+}
+
 export function LazyImage({
   src,
   alt,
@@ -114,13 +120,16 @@ export function LazyImage({
           alt={alt}
           className={cn(
             "transition-all duration-500",
-            `object-${objectFit}`,
-            `object-${objectPosition}`,
+            objectFitClasses[objectFit] || "object-cover",
             isLoaded ? "opacity-100" : "opacity-0",
             hasError && "grayscale",
             width && height ? "" : "w-full h-full",
             className
           )}
+          style={{
+            objectFit: objectFit,
+            objectPosition: objectPosition
+          }}
           onLoad={handleLoad}
           onError={handleError}
           loading="lazy"

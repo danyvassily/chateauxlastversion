@@ -12,8 +12,8 @@ export default function DomeniRosePage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page Cuvée domeni Rosé/ROSE DOMENI.jpg"
-      pdfPath="/Page/Page Cuvée domeni Rosé/FT_rosé_Domeni_2024 (1).pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée domeni Rosé/ROSE DOMENI.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée domeni Rosé/FT_rosé_Domeni_2024 (1).pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page Cuvée domeni Rosé/ROSE DOMENI.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée domeni Rosé/ROSE DOMENI.jpg"],
     },
   }
 }

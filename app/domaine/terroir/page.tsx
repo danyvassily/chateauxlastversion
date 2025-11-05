@@ -2,17 +2,16 @@ import { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { TextBlock } from "@/components/common/TextBlock";
-import { QuoteRibbon } from "@/components/common/QuoteRibbon";
 import { TransitionLink } from "@/components/gsap/TransitionLink";
 import { SPACING } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Notre Terroir | Château Lastours",
+  title: "Notre Vignoble | Château Lastours",
   description: "Découvrez le terroir exceptionnel du Château Lastours : 52 hectares de vignoble dans l'appellation Gaillac, des cépages traditionnels et un savoir-faire ancestral.",
   openGraph: {
-    title: "Notre Terroir | Château Lastours", 
+    title: "Notre Vignoble | Château Lastours", 
     description: "Un terroir d'exception au cœur de l'appellation Gaillac",
-    images: ["/Page/Notre vignoble - manque 1 photo/vignes.jpg"],
+    images: ["/PHOTOS-WEB-LASTOURS/VIGNES/vignes.jpg"],
   },
 };
 
@@ -22,7 +21,7 @@ const terroirData = {
     title: "Le Vignoble de Gaillac",
     subtitle: "Un Voyage Millénaire au Cœur du Sud-Ouest",
     description: "Aux confins du Sud-Ouest de la France, entre Toulouse et Albi, s'étend un vignoble ancestral, vibrant d'histoire et de mémoire : le terroir de Gaillac. Ici, la vigne pousse depuis plus de deux millénaires.",
-    image: "/Page/Notre vignoble - manque 1 photo/vignes.jpg"
+    image: "/PHOTOS-WEB-LASTOURS/VIGNES/vignes.jpg"
   },
   stats: [
     {
@@ -50,21 +49,21 @@ const terroirData = {
     title: "Des Cépages Autochtones Uniques",
     description: "Ce terroir vivant, vibrant, offre une expression rare de cépages autochtones : Mauzac, frais, évoquant la pomme verte et les fleurs blanches ; Loin de l'œil, un raisin blanc rare, quasi uniquement cultivé à Gaillac, connu pour produire des vins frais et fruités ; Duras, puissant, épicé et fruité ; Braucol, intense et sauvage, aux arômes de fruits noirs et d'épices ; Prunelard, puissant aux notes de fruits noirs, de pruneaux et de violettes.",
     description2: "Des variétés que l'on ne trouve nulle part ailleurs, et qui font toute l'identité unique des vins de Gaillac. Chaque cépage révèle le caractère authentique de notre terroir millénaire.",
-    image: "/Page/La vigne - ok/image00002.jpeg"
+    image: "/photos/image00002.jpeg"
   },
   climat: {
     title: "Un Terroir d'Exception, Entre Ciel et Terre",
     description: "Le climat de Gaillac se situe à la croisée des influences atlantiques et méditerranéennes, offrant des étés ensoleillés et des nuits rafraîchies par les brumes du Tarn. Les sols argilo-calcaires, riches en minéraux, donnent profondeur et caractère aux raisins.",
     description2: "Ici, la nature est généreuse et contrastée. Cette région où l'on cultive l'art de vivre aussi bien que celui du vin offre un terroir vivant et vibrant.",
     description3: "Dans cette harmonie entre tradition et nature, chaque parcelle révèle son caractère unique et contribue à l'identité authentique des vins de Gaillac.",
-    image: "/Page/La vigne - ok/IMG_20230809_124834.jpg"
+    image: "/PHOTOS-WEB-LASTOURS/VIGNES/IMG_20230809_124834.jpg"
   },
   parcelles: [
     {
       id: "rive-droite",
       title: "La Rive Droite",
       description: "Nos parcelles historiques s'étendent sur la rive droite du Tarn, bénéficiant d'une exposition sud exceptionnelle. Ces vignes anciennes, cultivées selon les méthodes traditionnelles, produisent nos cuvées les plus authentiques.",
-      image: "/Page/Notre vignoble - manque 1 photo/vieille vigne.jpg",
+      image: "/PHOTOS-WEB-LASTOURS/VIGNES/vieille vigne.jpg",
       superficie: "18 hectares",
       cepages: "Braucol, Duras",
       age: "35 ans"
@@ -73,7 +72,7 @@ const terroirData = {
       id: "rive-gauche",
       title: "La Rive Gauche",
       description: "Sur la rive gauche, nos parcelles bénéficient des brumes matinales du Tarn qui préservent la fraîcheur des raisins. Terroir privilégié pour nos cépages blancs autochtones.",
-      image: "/Page/La vigne - ok/image00005.jpeg",
+      image: "/photos/image00005.jpeg",
       superficie: "17 hectares",
       cepages: "Mauzac, Loin-de-l'œil",
       age: "30 ans"
@@ -82,7 +81,7 @@ const terroirData = {
       id: "plateau-cordais",
       title: "Le Plateau Cordais",
       description: "Le plateau cordais, avec ses sols argilo-calcaires, offre des conditions uniques pour l'expression de nos cépages. Cette diversité de terroirs contribue à la richesse de notre gamme.",
-      image: "/Page/La vigne - ok/image00036.jpeg",
+      image: "/photos/image00036.jpeg",
       superficie: "17 hectares",
       cepages: "Prunelard, Mauzac",
       age: "25 ans"
@@ -111,7 +110,7 @@ export default function TerroirPage() {
         {/* Image de fond avec parallax subtil */}
         <div className="absolute inset-0">
           <img
-            src="/Page/La vigne - ok/la véraison .jpg"
+            src="/Page/La vigne - ok/grappe-de-raisins-en-veraison-chateau-lastours-gaillac-france.jpg"
             alt="Notre Terroir - Vignoble Château Lastours"
             className="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-700 hover:scale-100"
           />
@@ -226,12 +225,6 @@ export default function TerroirPage() {
           </div>
         </div>
       </section>
-
-      {/* Citation principale */}
-      <QuoteRibbon
-        text="Dès l'époque gallo-romaine, ces terres baignées de soleil virent les premiers ceps prendre racine. Chaque pierre, chaque grappe, chaque souffle de vent y murmure une histoire."
-        author="Château Lastours"
-      />
 
       {/* Statistiques du terroir */}
       <section className="py-24 lg:py-36 xl:py-44 relative z-10">

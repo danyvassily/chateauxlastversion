@@ -12,8 +12,8 @@ export default function PerlePage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page cuvée Perlé/BLANC PERLE.jpg"
-      pdfPath="/Page/Page cuvée Perlé/FT_perlé_2023.pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme perlé/Page cuvée Perlé/BLANC PERLE.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme perlé/Page cuvée Perlé/FT_perlé_2023.pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page cuvée Perlé/BLANC PERLE.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme perlé/Page cuvée Perlé/BLANC PERLE.jpg"],
     },
   }
 }

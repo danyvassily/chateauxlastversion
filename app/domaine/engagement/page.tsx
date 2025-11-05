@@ -1,168 +1,240 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Metadata } from "next";
+import { cn } from "@/lib/utils";
+import { TransitionLink } from "@/components/gsap/TransitionLink";
+import { SPACING } from "@/lib/constants";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Nos Engagements Écoresponsables | Château Lastours",
+  description: "Découvrez les engagements écoresponsables du Château Lastours, domaine viticole certifié HVE en Gaillac, engagé pour une viticulture durable et respectueuse de l'environnement.",
+  openGraph: {
+    title: "Nos Engagements Écoresponsables | Château Lastours",
+    description: "Une viticulture durable en plein cœur du Sud-Ouest français.",
+    images: ["/Page/Notre vignoble - manque 1 photo/vignes-allee-de-platane-gaillac-france.jpg"],
+  },
+};
+
+// Contenu des sections d'engagement
+const engagementSections = [
+  {
+    id: "certification-hve",
+    text: {
+      kicker: "Certification HVE",
+      title: "Certification HVE - Haute Valeur Environnementale",
+      body: "La Certification HVE3 (Haute Valeur Environnementale niveau 3) est une démarche engagée par les viticulteurs soucieux de leur impact écologique. En obtenant cette certification, nous mettons en avant notre volonté d'adopter une viticulture durable, tout en garantissant la qualité de nos vins à travers des pratiques agricoles respectueuses de la biodiversité, de la gestion de l'eau, de la réduction de l'usage de produits phytosanitaires, et de la maintenance d'un espace naturel équilibré.",
+    },
+    image: {
+      src: "/PHOTOS-WEB-LASTOURS/VIGNES/1682596442650.jpg",
+      alt: "Certification HVE au Château Lastours",
+    },
+    layout: "text-first",
+    logo: "/Page/Nos Engagement - ok/logo-HVE3.png",
+  },
+  {
+    id: "zero-insecticides",
+    text: {
+      kicker: "Zéro Insecticides",
+      title: "Zero Insecticides",
+      body: "La confusion sexuelle est une méthode de lutte biologique contre certains ravageurs de la grappe que nous avons mis en place au domaine. Nous diffusons des phéromones femelles pour désorienter les mâles afin d'empêcher leur reproduction. Cette approche écologique nous permet de réduire considérablement l'usage de pesticides tout en préservant l'équilibre naturel de nos vignes.",
+    },
+    image: {
+      src: "/Page/Nos Engagement - ok/nos-engagements-agriculture-raisonnee-chateau-lastours-aop-aoc-gaillac-france.jpg",
+      alt: "Confusion sexuelle dans les vignes du Château Lastours",
+    },
+    layout: "image-first",
+  },
+  {
+    id: "terre-preservee",
+    text: {
+      kicker: "Patrimoine Naturel",
+      title: "Une Terre préservée, un patrimoine valorisé",
+      body: "Notre domaine s'étend sur des terres cultivées dans le respect des équilibres naturels. Nous favorisons les pratiques douces : travail mécanique des sols, enherbement naturel, traitements alternatifs et limitation des intrants chimiques. L'objectif : laisser à la nature toute sa place et produire des vins authentiques, reflet de notre terroir.",
+    },
+    image: {
+      src: "/PHOTOS-WEB-LASTOURS/VIGNES/vignes.jpg",
+      alt: "Vignoble durable du Château Lastours",
+    },
+    layout: "text-first",
+  },
+  {
+    id: "evenements-responsables",
+    text: {
+      kicker: "Événements Durables",
+      title: "Des Événements Responsables",
+      body: "Organisez vos mariages, séminaires ou événements d'entreprise dans un cadre exceptionnel et engagé. Nous mettons un point d'honneur à proposer des services écoresponsables : partenariats avec traiteurs locaux, valorisation des circuits courts, recyclage et limitation des déchets. Offrez à vos invités une expérience aussi mémorable que durable.",
+    },
+    image: {
+      src: "/photos/bulle-de-jazz-2021-chazo-087.jpg",
+      alt: "Événement écoresponsable au Château Lastours",
+    },
+    layout: "image-first",
+  },
+];
 
 export default function EngagementPage() {
   return (
-    <div className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url('/Page/Nos Engagement - ok/bulle-de-jazz-2021-chazo-127.jpg')",
-            }}
+    <div className="min-h-screen relative bg-premium" data-page="engagement">
+      {/* Texture grain prononcée - Style premium */}
+      <div className="fixed inset-0 opacity-12 pointer-events-none texture-paper"></div>
+      <div className="fixed inset-0 opacity-8 pointer-events-none texture-grain"></div>
+      <div className="fixed inset-0 opacity-30 pointer-events-none gradient-depth"></div>
+
+      {/* Hero Section - Style Ruinart */}
+      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden z-10 mt-6 lg:mt-8 mb-6 lg:mb-8">
+        <div className="absolute inset-0">
+          <Image
+            src="/Page/Notre vignoble - manque 1 photo/vignes-allee-de-platane-gaillac-france.jpg"
+            alt="Coucher de soleil avec allée de platane et vignes - Château Lastours"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+            priority
           />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-display mb-6 text-balance">Notre Engagement</h1>
-            <p className="text-xl md:text-2xl text-pretty opacity-90">
-              Générosité, Authenticité, Bienveillance et Transmission
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
+        </div>
+
+        {/* Texte superposé - Position CENTRÉE */}
+        <div className="relative h-full flex items-center justify-center text-center z-10">
+          <div className={cn(SPACING.container, "max-w-4xl")}>
+            <div className="inline-block mb-6">
+              <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-md text-white text-xs font-bold tracking-[0.2em] uppercase border border-white/20">
+                Nos Engagements
+              </span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light leading-[1.05] tracking-tight text-white mb-6 lg:mb-8">
+              Un Domaine Durable, Une Terre d'Avenir
+            </h1>
+            <p className="text-lg lg:text-xl xl:text-2xl leading-relaxed text-white/90 font-light tracking-wide max-w-3xl mx-auto">
+              Engagés pour la nature, enracinés dans l'excellence.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Valeurs Section */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-display mb-6 text-foreground">Nos Valeurs Fondamentales</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                "Puisse Lastours être l'écrin rassemblant ces valeurs qui nous sont chères"
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  title: "Générosité",
-                  description: "Partager notre passion et notre savoir-faire avec authenticité et bienveillance.",
-                  icon: "🤝",
-                },
-                {
-                  title: "Authenticité",
-                  description: "Respecter les traditions gaillacoises tout en innovant avec respect du terroir.",
-                  icon: "🍇",
-                },
-                {
-                  title: "Bienveillance",
-                  description: "Accueillir chaque visiteur avec chaleur et décomplexer l'approche du vin.",
-                  icon: "❤️",
-                },
-                {
-                  title: "Transmission",
-                  description: "Transmettre notre héritage familial et nos valeurs aux générations futures.",
-                  icon: "🌱",
-                },
-              ].map((valeur, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="text-4xl mb-4">{valeur.icon}</div>
-                    <h3 className="text-xl font-display mb-3 text-foreground">{valeur.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{valeur.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pratiques Durables Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-display mb-12 text-center text-foreground">
-                Viticulture Durable
-              </h2>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                  <h3 className="text-2xl font-display mb-6 text-foreground">Certification HVE</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Le Château Lastours s'engage dans une démarche de Haute Valeur Environnementale (HVE), certification
-                    qui reconnaît les exploitations engagées dans des pratiques particulièrement respectueuses de
-                    l'environnement.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Cette certification couvre la biodiversité, la stratégie phytosanitaire, la gestion de la
-                    fertilisation et la gestion de l'irrigation.
-                  </p>
-                </div>
-                <div className="aspect-square bg-muted rounded-lg overflow-hidden">
-                  <img
-                    src="/Page/Nos Engagement - ok/1682596442650.jpg"
-                    alt="Pratiques viticoles durables"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div className="order-2 lg:order-1 aspect-square bg-muted rounded-lg overflow-hidden">
-                  <img
-                    src="/Page/Nos Engagement - ok/IMG_20230808_201123 - pas bonne taille.jpg"
-                    alt="Confusion sexuelle dans les vignes"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="order-1 lg:order-2">
-                  <h3 className="text-2xl font-display mb-6 text-foreground">Confusion Sexuelle</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Nous utilisons la technique de confusion sexuelle pour lutter naturellement contre les parasites de
-                    la vigne, notamment les vers de la grappe.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Cette méthode consiste à diffuser des phéromones qui perturbent l'accouplement des insectes
-                    nuisibles, réduisant ainsi considérablement l'usage de pesticides.
+      {/* Sections d'engagement - Style panoramique pleine largeur */}
+      {engagementSections.map((section, index) => {
+        // Pour la section "zero-insecticides", afficher juste le texte sans image
+        const isTextOnly = section.id === "zero-insecticides";
+        
+        if (isTextOnly) {
+          return (
+            <section 
+              key={section.id}
+              className="relative z-10 mt-6 lg:mt-8 bg-white py-16 lg:py-24"
+            >
+              {/* Pleine largeur */}
+              <div className="w-full">
+                <div className={`max-w-full px-4 lg:px-8 xl:px-16 2xl:px-24 ${section.layout === "text-first" ? "text-left" : "text-right"}`}>
+                  {/* Kicker */}
+                  <div className="mb-6">
+                    <span className="inline-block px-6 py-3 bg-slate-100 text-slate-800 text-xs font-bold tracking-[0.2em] uppercase border border-slate-200">
+                      {section.text.kicker}
+                    </span>
+                  </div>
+                  
+                  {/* Titre */}
+                  <h2 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-serif font-light text-slate-900 tracking-[0.02em] leading-[1.1] mb-8 max-w-5xl">
+                    {section.text.title}
+                  </h2>
+                  
+                  {/* Corps de texte */}
+                  <p className="text-base lg:text-lg xl:text-xl leading-relaxed text-slate-700 font-light tracking-wide max-w-5xl">
+                    {section.text.body}
                   </p>
                 </div>
               </div>
+            </section>
+          );
+        }
+        
+        // Pour les autres sections, afficher avec image panoramique pleine largeur
+        return (
+          <section 
+            key={section.id}
+            className="relative z-10 mt-6 lg:mt-8"
+          >
+            {/* Image panoramique pleine largeur */}
+            <div className="relative w-full h-[60vh] lg:h-[70vh] xl:h-[80vh] 2xl:h-[85vh] overflow-hidden">
+              <Image
+                src={section.image.src}
+                alt={section.image.alt}
+                fill
+                className="object-cover object-center hover:scale-105 transition-transform duration-500"
+              />
+              
+              {/* Overlay gradient subtil */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              
+              {/* Grain texture */}
+              <div className="absolute inset-0 opacity-[0.03] texture-grain-fine"></div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h3 className="text-2xl font-display mb-6 text-foreground">Vignoble Durable</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Notre approche du vignoble durable intègre la préservation des sols, la biodiversité et la gestion
-                    raisonnée de l'eau.
-                  </p>
-                  <ul className="text-muted-foreground space-y-2">
-                    <li>• Enherbement naturel entre les rangs</li>
-                    <li>• Préservation des haies et bosquets</li>
-                    <li>• Gestion optimisée de l'irrigation</li>
-                    <li>• Compostage des déchets verts</li>
-                    <li>• Utilisation de produits phytosanitaires raisonnée</li>
-                  </ul>
+              {/* Texte en overlay - Position selon layout - Pleine largeur */}
+              <div className={`absolute inset-0 flex items-end ${section.layout === "text-first" ? "justify-start" : "justify-end"}`}>
+                <div className={`w-full px-4 lg:px-8 xl:px-16 2xl:px-24 pb-8 lg:pb-16 xl:pb-20 ${section.layout === "text-first" ? "text-left" : "text-right"}`}>
+                  <div className={`max-w-5xl ${section.layout === "text-first" ? "ml-0" : "ml-auto"}`}>
+                    {/* Kicker */}
+                    <div className="mb-6">
+                      <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-md text-white text-xs font-bold tracking-[0.2em] uppercase border border-white/20">
+                        {section.text.kicker}
+                      </span>
+                    </div>
+                    
+                    {/* Logo HVE si présent */}
+                    {section.logo && (
+                      <div className="mb-6">
+                        <Image
+                          src={section.logo}
+                          alt="Logo Certification HVE"
+                          width={150}
+                          height={150}
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
+                    
+                    {/* Titre */}
+                    <h2 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-serif font-light text-white tracking-[0.02em] leading-[1.1] mb-8">
+                      {section.text.title}
+                    </h2>
+                    
+                    {/* Corps de texte */}
+                    <p className="text-base lg:text-lg xl:text-xl leading-relaxed text-white/90 font-light tracking-wide max-w-3xl">
+                      {section.text.body}
+                    </p>
+                  </div>
                 </div>
-                <div className="aspect-square bg-muted rounded-lg overflow-hidden">
-                  <img
-                    src="/Page/Notre vignoble - manque 1 photo/vignes.jpg"
-                    alt="Écosystème viticole biodiversifié"
-                    className="w-full h-full object-cover"
-                  />
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Section CTA - Réserver une visite - Style plein écran */}
+      <section className="relative py-24 lg:py-32 xl:py-40 z-10 bg-gradient-to-b from-slate-50 to-white mt-6 lg:mt-8">
+        {/* Pleine largeur */}
+        <div className="w-full">
+          <div className="max-w-full px-4 lg:px-8 xl:px-16 2xl:px-24">
+            <div className="max-w-6xl mx-auto text-center">
+              <div className="space-y-8">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-slate-900 tracking-[0.02em] font-light leading-[1.1]">
+                  Envie d'en savoir plus ?
+                </h3>
+                <p className="text-xl md:text-2xl xl:text-3xl leading-relaxed text-slate-600 font-light tracking-wide max-w-4xl mx-auto mb-8">
+                  Réservez une visite du domaine et découvrez notre philosophie durable de l'intérieur.
+                </p>
+                <div className="pt-4">
+                  <TransitionLink 
+                    href="/reservation"
+                    className="inline-flex items-center px-12 lg:px-16 py-5 lg:py-6 bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 text-white font-light text-lg lg:text-xl tracking-wide transition-all duration-700 backdrop-blur-sm hover:scale-[1.02] shadow-2xl group"
+                  >
+                    Réserver une visite
+                  </TransitionLink>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Philosophie Section */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-display mb-8 text-foreground">Notre Philosophie</h2>
-              <blockquote className="text-xl md:text-2xl font-display text-muted-foreground italic mb-8">
-                "Un bon vin, c'est avant tout celui qu'on aime"
-              </blockquote>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Au Château Lastours, nous décomplexons le visiteur dans son approche du vin. Notre mission est de rendre
-                accessible la dégustation et la découverte des vins gaillacois, dans une ambiance chaleureuse et
-                conviviale.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Nous croyons que chaque vin a sa place et que chaque palais mérite d'être respecté. C'est cette
-                bienveillance qui guide notre accueil et nos conseils.
-              </p>
-            </div>
-          </div>
-        </section>
+        </div>
+      </section>
     </div>
-  )
+  );
 }

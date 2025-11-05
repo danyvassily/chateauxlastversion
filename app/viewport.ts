@@ -3,12 +3,9 @@ import type { Viewport } from 'next'
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5, // Permet le zoom pour l'accessibilité
+  userScalable: true, // Permet le zoom tactile
   // @ts-ignore
   shrinkToFit: 'no',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' }
-  ]
+  themeColor: '#ffffff' // Thème clair uniquement
 }

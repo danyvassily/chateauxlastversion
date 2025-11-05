@@ -4,11 +4,23 @@
 /* Import des styles de grain et textures premium */
 @import '../styles/grain.css';
 
-/* Thème simple clair + nouvelles fontes */
+/* Import du layout responsive (variables et règles globales) */
+@import '../styles/layout-responsive.css';
+
+/* Import des optimisations mobile et tablette */
+@import '../styles/mobile-optimizations.css';
+
+/* Import des corrections responsive (fonds, espaces, overflow) */
+@import '../styles/responsive-fixes.css';
+
+/* Thème simple clair + nouvelles fontes + Optimisations Mobile */
 :root {
   /* Couleurs basiques pour rester compatibles avec les utilitaires existants */
   --background: #ffffff;
   --foreground: #111827; /* gris très foncé */
+  
+  /* Optimisations tactiles mobile */
+  --touch-target-min: 44px; /* Taille minimale pour les zones tactiles (Apple HIG) */
   --card: #ffffff;
   --card-foreground: #111827;
   --popover: #ffffff;
@@ -33,6 +45,51 @@
   --wine-black: #000000;
   --wine-burgundy: #7a1f2b;
   --wine-cream: #f8f5ee;
+
+  /* Tokens typographiques normalisés */
+  --font-family-base: 'Noto Sans Bengali', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, 'Noto Sans', sans-serif;
+  --font-family-heading: 'Kaisei Decol', serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 1.875rem; /* 30px */
+  --font-size-3xl: 2.25rem; /* 36px */
+
+  /* ============================================================================
+     SYSTÈME DE RYTHME VERTICAL UNIFIÉ (basé sur la page Home)
+     ============================================================================ */
+  
+  /* Rythme de base : 24px (inspiré de la page Home) */
+  --rhythm: 24px;
+  
+  /* Échelle de multiples pour espacements cohérents */
+  --rhythm-0-5: calc(var(--rhythm) * 0.5);    /* 12px - Micro-espacement */
+  --rhythm-0-75: calc(var(--rhythm) * 0.75);  /* 18px - Petit espacement */
+  --rhythm-0-83: calc(var(--rhythm) * 0.833); /* 20px - Espacement texte fin */
+  --rhythm-1: var(--rhythm);                   /* 24px - Espacement standard */
+  --rhythm-1-33: calc(var(--rhythm) * 1.333); /* 32px - Espacement texte/image interne */
+  --rhythm-1-5: calc(var(--rhythm) * 1.5);    /* 36px - Espacement moyen */
+  --rhythm-2: calc(var(--rhythm) * 2);        /* 48px - Encadré secondaire / Padding section */
+  --rhythm-2-5: calc(var(--rhythm) * 2.5);    /* 60px - Espacement large */
+  --rhythm-3: calc(var(--rhythm) * 3);        /* 72px - Section majeure */
+  --rhythm-3-33: calc(var(--rhythm) * 3.333); /* 80px - Gap grille large */
+  --rhythm-4: calc(var(--rhythm) * 4);        /* 96px - Espacement très large */
+  
+  /* Hauteur du header pour scroll-margin */
+  --header-height: 80px;
+}
+
+/* Responsive : ajustement du rythme pour petits écrans */
+@media (max-width: 640px) {
+  :root {
+    --rhythm: 18px; /* Réduction légère pour mobile */
+  }
 }
 
 @theme inline {
@@ -70,7 +127,8 @@
 /* Application des nouvelles fontes + tailles typographiques */
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: transparent;
     font-family: 'Noto Sans Bengali';
     font-weight: 400;
   }
@@ -90,6 +148,101 @@
   .font-display {
     font-family: 'Kaisei Decol';
     font-weight: 700;
+  }
+
+  /* Offset pour sticky header (hauteur: 80px = h-20) */
+  section[id],
+  [id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* ============================================================================
+     CLASSES DE RYTHME VERTICAL UNIFIÉES
+     ============================================================================ */
+  
+  /* Sections principales - Espacement entre sections (basé sur Home: mt-6 lg:mt-8) */
+  section {
+    margin-block-start: var(--rhythm-1);
+  }
+  
+  /* Première section - pas de marge supérieure */
+  main > section:first-child,
+  section:first-child {
+    margin-block-start: 0;
+  }
+  
+  /* Sections avec padding interne (comme section "Nos Vins": py-8 lg:py-12) */
+  .section-padded {
+    padding-block: var(--rhythm-1-33);
+  }
+  
+  /* Encadré secondaire - Espacement interne */
+  .section-inner {
+    margin-block: var(--rhythm-2);
+  }
+  
+  /* Blocs image - Espacement vertical */
+  .image-block {
+    margin-block: var(--rhythm-1-5);
+  }
+  
+  /* Espacement entre bloc texte et image (ou vice versa) */
+  .text-block + .image-block,
+  .image-block + .text-block {
+    margin-block-start: var(--rhythm-1);
+  }
+  
+  /* Espacements internes texte - Cohérents avec Home */
+  h1, h2, h3 {
+    margin-block-start: var(--rhythm-1);
+    margin-block-end: var(--rhythm-0-5);
+  }
+  
+  h4, h5, h6 {
+    margin-block-start: var(--rhythm-1);
+    margin-block-end: var(--rhythm-0-5);
+  }
+  
+  p, ul, ol {
+    margin-block: var(--rhythm-0-5);
+  }
+  
+  /* Espacement entre paragraphes (space-y-5 = 20px, space-y-6 = 24px) */
+  .space-y-rhythm-0-83 > * + * {
+    margin-top: var(--rhythm-0-83);
+  }
+  
+  .space-y-rhythm-1 > * + * {
+    margin-top: var(--rhythm-1);
+  }
+  
+  .space-y-rhythm-1-33 > * + * {
+    margin-top: var(--rhythm-1-33);
+  }
+  
+  /* Gaps dans grilles - Cohérents avec Home (gap-12 lg:gap-20 = 48px/80px) */
+  .gap-rhythm-2 {
+    gap: var(--rhythm-2);
+  }
+}
+
+/* Media queries pour le rythme vertical (en dehors de @layer base) */
+@media (min-width: 1024px) {
+  section {
+    margin-block-start: var(--rhythm-1-33);
+  }
+  
+  .section-padded {
+    padding-block: var(--rhythm-2);
+  }
+  
+  .text-block + .image-block,
+  .image-block + .text-block {
+    margin-block-start: var(--rhythm-1-33);
+  }
+  
+  .gap-rhythm-2 {
+    gap: var(--rhythm-3-33);
   }
 }
 
@@ -111,11 +264,13 @@ small { font-size: 0.750rem; }
   left: 0;
   right: 0;
   bottom: 0;
+  background: transparent;
 }
 
 .smooth-content {
   overflow: visible;
   width: 100%;
+  background: transparent;
 }
 
 /* Optimisations pour les performances */

@@ -19,7 +19,7 @@ export function ScrollAnimation({
   children,
   animation = 'fadeIn',
   trigger = 'top',
-  duration = 1,
+  duration = 0.5,
   delay = 0,
   ease = 'power2.out',
   className = '',
@@ -32,7 +32,20 @@ export function ScrollAnimation({
 
     if (!elementRef.current) return
 
+    // Vérifier les préférences de mouvement réduit
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      return // Désactiver les animations si l'utilisateur préfère le mouvement réduit
+    }
+
     const element = elementRef.current
+
+    // Fonction pour obtenir la hauteur du header
+    const getHeaderHeight = () => {
+      const headerHeight = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-height')
+      return headerHeight ? parseInt(headerHeight) : 80
+    }
 
     // Initial state based on animation type
     let fromVars: any = {}
@@ -40,27 +53,27 @@ export function ScrollAnimation({
 
     switch (animation) {
       case 'fadeIn':
-        fromVars = { opacity: 0, y: 30 }
+        fromVars = { opacity: 0, y: 20 }
         toVars = { opacity: 1, y: 0 }
         break
       
       case 'slideUp':
-        fromVars = { opacity: 0, y: 60 }
+        fromVars = { opacity: 0, y: 40 }
         toVars = { opacity: 1, y: 0 }
         break
       
       case 'slideLeft':
-        fromVars = { opacity: 0, x: 60 }
+        fromVars = { opacity: 0, x: 40 }
         toVars = { opacity: 1, x: 0 }
         break
       
       case 'slideRight':
-        fromVars = { opacity: 0, x: -60 }
+        fromVars = { opacity: 0, x: -40 }
         toVars = { opacity: 1, x: 0 }
         break
       
       case 'scale':
-        fromVars = { opacity: 0, scale: 0.8 }
+        fromVars = { opacity: 0, scale: 0.9 }
         toVars = { opacity: 1, scale: 1 }
         break
       
@@ -71,12 +84,13 @@ export function ScrollAnimation({
 
       case 'parallax':
         // Parallax effect - element moves at different speed than scroll
+        const headerHeight = getHeaderHeight()
         gsap.to(element, {
           yPercent: -50 * speed,
           ease: 'none',
           scrollTrigger: {
             trigger: element,
-            start: 'top bottom',
+            start: () => `top+=${headerHeight} bottom`,
             end: 'bottom top',
             scrub: true
           }
@@ -87,16 +101,21 @@ export function ScrollAnimation({
     // Set initial state
     gsap.set(element, fromVars)
 
-    // Create scroll trigger animation
+    // Créer l'animation avec prise en compte du header
+    const headerHeight = getHeaderHeight()
+    const triggerStart = trigger === 'top' ? '80%' : trigger === 'center' ? '50%' : '20%'
+    
+    // Create scroll trigger animation with optimized duration
     gsap.to(element, {
       ...toVars,
-      duration,
-      delay,
+      duration: prefersReducedMotion ? 0.01 : duration,
+      delay: prefersReducedMotion ? 0 : delay,
       ease,
       scrollTrigger: {
         trigger: element,
-        start: `top ${trigger === 'top' ? '80%' : trigger === 'center' ? '50%' : '20%'}`,
-        toggleActions: 'play none none reverse'
+        start: () => `top+=${headerHeight} ${triggerStart}`,
+        toggleActions: 'play none none reverse',
+        refreshPriority: -1 // Priorité plus basse pour éviter les conflits
       }
     })
 
@@ -120,7 +139,7 @@ export function ScrollAnimation({
 export function CinematicTextAnimation({ 
   children, 
   className = '',
-  staggerDelay = 0.1 
+  staggerDelay = 0.08 
 }: { 
   children: ReactNode
   className?: string
@@ -133,6 +152,12 @@ export function CinematicTextAnimation({
 
     if (!textRef.current) return
 
+    // Vérifier les préférences de mouvement réduit
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      return
+    }
+
     const element = textRef.current
     const lines = element.querySelectorAll('.text-line')
 
@@ -141,21 +166,27 @@ export function CinematicTextAnimation({
     // Set initial state
     gsap.set(lines, { 
       opacity: 0, 
-      y: 50,
-      rotationX: 15
+      y: 30
     })
 
-    // Create staggered animation
+    // Fonction pour obtenir la hauteur du header
+    const getHeaderHeight = () => {
+      const headerHeight = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-height')
+      return headerHeight ? parseInt(headerHeight) : 80
+    }
+
+    // Create staggered animation with optimized timing
+    const headerHeight = getHeaderHeight()
     gsap.to(lines, {
       opacity: 1,
       y: 0,
-      rotationX: 0,
-      duration: 1.2,
-      ease: 'power3.out',
+      duration: 0.5,
+      ease: 'power2.out',
       stagger: staggerDelay,
       scrollTrigger: {
         trigger: element,
-        start: 'top 80%',
+        start: () => `top+=${headerHeight} 80%`,
         toggleActions: 'play none none reverse'
       }
     })
@@ -193,28 +224,40 @@ export function PremiumCardAnimation({
 
     if (!cardRef.current) return
 
+    // Vérifier les préférences de mouvement réduit
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      return
+    }
+
     const element = cardRef.current
 
     // Set initial state
     gsap.set(element, { 
       opacity: 0, 
-      y: 80,
-      scale: 0.95,
-      filter: 'blur(10px)'
+      y: 50,
+      scale: 0.97
     })
 
-    // Create sophisticated animation
+    // Fonction pour obtenir la hauteur du header
+    const getHeaderHeight = () => {
+      const headerHeight = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-height')
+      return headerHeight ? parseInt(headerHeight) : 80
+    }
+
+    // Create optimized animation with shorter duration and reduced stagger
+    const headerHeight = getHeaderHeight()
     gsap.to(element, {
       opacity: 1,
       y: 0,
       scale: 1,
-      filter: 'blur(0px)',
-      duration: 1.5,
-      delay: index * 0.15,
-      ease: 'power3.out',
+      duration: 0.6,
+      delay: index * 0.1,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: element,
-        start: 'top 85%',
+        start: () => `top+=${headerHeight} 85%`,
         toggleActions: 'play none none reverse'
       }
     })

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "Un effervescent ancestral 100% Mauzac aux arômes croquants de pomme verte",
     images: [
       {
-        url: "/Page/Page Méthode Blanche/LA METHODE BLANC.jpg",
+        url: "/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/LA METHODE BLANC.jpg",
         width: 1200,
         height: 630,
         alt: "Méthode Blanche - Château Lastours"
@@ -32,7 +32,7 @@ export default function MethodeBlanchePage() {
       <SectionHero
         title="Méthode Blanche"
         subtitle="Un effervescent ancestral 100% Mauzac aux arômes croquants de pomme verte"
-        imageSrc="/Page/Page Méthode Blanche/LA METHODE BLANC.jpg"
+        imageSrc="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/LA METHODE BLANC.jpg"
         height="xl"
       />
 
@@ -47,7 +47,7 @@ export default function MethodeBlanchePage() {
           
           <p>Cette méthode ancestrale, transmise de génération en génération, permet au vin de développer naturellement sa prise de mousse en bouteille, sans ajout de sucre ni de levures externes.</p>
         `}
-        imageSrc="/Page/Page Méthode Blanche/LA METHODE BLANC.jpg"
+        imageSrc="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/LA METHODE BLANC.jpg"
         variant="light"
       />
 
@@ -112,7 +112,7 @@ export default function MethodeBlanchePage() {
             <div className="pt-6">
               <Button asChild size="lg" className="text-lg px-8 py-3">
                 <a 
-                  href="/Page/Page Méthode Blanche/FT_la_méthode_blanc.pdf"
+                  href="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/FT_la_méthode_blanc.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

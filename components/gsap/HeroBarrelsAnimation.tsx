@@ -62,12 +62,19 @@ export function HeroBarrelsAnimation({ children, className = '' }: HeroBarrelsAn
       }
     })
 
+    // Fonction pour obtenir la hauteur du header
+    const getHeaderHeight = () => {
+      const headerHeight = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-height')
+      return headerHeight ? parseInt(headerHeight) : 80
+    }
+
     const overlayTween = gsap.to(overlay, {
       opacity: 0.95,
       ease: 'none',
       scrollTrigger: {
         trigger: container,
-        start: 'top top',
+        start: () => `top+=${getHeaderHeight()} top`,
         end: 'bottom top',
         scrub: true
       }
@@ -85,8 +92,8 @@ export function HeroBarrelsAnimation({ children, className = '' }: HeroBarrelsAn
       {/* Image héroïque avec fallback */}
       <img
         ref={imageRef}
-        src="/photos/allée-platane-tente.jpg"
-        alt="Allée de platanes du Château Lastours"
+        src="/Page/Nos Cuvée-ok/Photo entête de page cuvées blanc/Vin-Blanc-Rouge-Rosé-Bulles-Gaillac-Sud-Ouest-France.jpg"
+        alt="Vins du Château Lastours - Collections d'Exception"
         className="w-full h-full object-cover"
         style={{ 
           objectPosition: 'center center',
@@ -95,7 +102,7 @@ export function HeroBarrelsAnimation({ children, className = '' }: HeroBarrelsAn
         onError={(e) => {
           // Fallback vers l'image de la cave si l'image principale n'est pas disponible
           const target = e.target as HTMLImageElement
-          if (target.src.includes('all%C3%A9e-platane-tente.jpg')) {
+          if (target.src.includes('Vin-Blanc-Rouge-Rosé-Bulles-Gaillac-Sud-Ouest-France.jpg')) {
             target.src = '/french-chateau-wine-cellar.png'
           }
         }}

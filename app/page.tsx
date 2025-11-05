@@ -152,8 +152,8 @@ export default function HomePage() {
 
   return (
     <div ref={container} className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Commence directement en haut sans espace grâce à la marge négative */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden" style={{ marginTop: '-80px', paddingTop: '80px' }}>
         <div
           ref={heroImage}
           className="absolute inset-0 will-change-transform"
@@ -163,7 +163,8 @@ export default function HomePage() {
             alt="Vignoble du Château Lastours au coucher du soleil"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-center sm:object-[center_center] lg:object-[center_40%]"
+            sizes="100vw"
           />
         </div>
         {/* Overlay sombre léger pour lisibilité */}
@@ -183,10 +184,10 @@ export default function HomePage() {
             </p>
             <div className="hero-button">
               <Button
-                size="lg"
+                size="default"
                 variant="outline"
                 asChild
-                className="group bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 px-6 sm:px-8 lg:px-12 py-4 sm:py-6 text-sm sm:text-base lg:text-lg font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase w-full sm:w-auto sm:min-w-[280px] lg:min-w-[400px]"
+                className="group bg-transparent text-white border-white hover:bg-white hover:text-black transition-all duration-300 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-xs sm:text-sm lg:text-base font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase w-full sm:w-auto sm:min-w-[200px] lg:min-w-[280px]"
               >
                 <Link href="/savoir-faire" aria-label="Découvrez notre savoir-faire">
                   <span className="hidden sm:inline">Découvrez notre savoir-faire</span>
@@ -207,7 +208,7 @@ export default function HomePage() {
 
 
       {/* 1. NOS VINS - Image à gauche, Texte à droite avec animation */}
-      <section className="relative py-16 lg:py-24 mt-12 lg:mt-16 bg-white overflow-hidden section-wines">
+      <section className="relative py-8 lg:py-12 mt-6 lg:mt-8 bg-white overflow-hidden section-wines">
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none grain"></div>
         
         <div className="container mx-auto px-6 lg:px-12">
@@ -220,7 +221,8 @@ export default function HomePage() {
                   src="/Page/homepage/Nos vins gamme pétrichor.jpg"
                   alt="Gamme de vins Pétrichor du Château Lastours"
                   fill
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center sm:object-[center_center] lg:object-[center_30%] hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
@@ -232,8 +234,8 @@ export default function HomePage() {
             {/* Texte à droite avec animations */}
             <div className="space-y-8 wine-content">
               <div className="inline-block wine-badge">
-                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#8B7355] border border-[#8B7355]/30 px-4 py-2 rounded-sm bg-white/50 backdrop-blur-sm">
-                  Nos Vins
+                <span className="text-xs sm:text-sm font-light tracking-[0.3em] uppercase text-[#8B7355] border border-[#8B7355]/30 px-4 py-2 rounded-sm bg-white/50 backdrop-blur-sm">
+                  Collection
                 </span>
               </div>
               
@@ -243,7 +245,7 @@ export default function HomePage() {
               
               <div className="space-y-6">
                 <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-light text-gray-700 wine-text wine-text-1">
-                  De notre gamme <span className="italic font-serif text-[#8B7355] font-medium">Pétrichor</span>, 
+                  De notre gamme <span className="italic font-serif text-[#8B7355] font-light">Pétrichor</span>, 
                   signature de notre savoir-faire, à nos cuvées confidentielles, chaque vin exprime 
                   avec élégance la quintessence de notre terroir.
                 </p>
@@ -272,13 +274,14 @@ export default function HomePage() {
       </section>
 
       {/* 2. VISITER LE CHÂTEAU - PANORAMIQUE */}
-      <section className="relative h-[75vh] lg:h-[90vh] overflow-hidden mt-12 lg:mt-16">
+      <section className="relative h-[75vh] lg:h-[90vh] overflow-hidden mt-6 lg:mt-8">
         <div className="absolute inset-0">
           <Image
             src="/Page/homepage/Château côté jardin.JPG"
             alt="Château Lastours côté jardin"
             fill
-            className="object-cover hover:scale-105 transition-transform duration-700"
+            className="object-cover object-center sm:object-[center_center] lg:object-[center_40%] hover:scale-105 transition-transform duration-700"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
           <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
@@ -289,7 +292,7 @@ export default function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
               <div className="inline-block mb-6">
-                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
+                <span className="text-xs sm:text-sm font-light tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
                   Découvrir
                 </span>
               </div>
@@ -325,13 +328,14 @@ export default function HomePage() {
       </section>
 
       {/* 3. UNE HISTOIRE À PARTAGER - PANORAMIQUE */}
-      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-12 lg:mt-16">
+      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-6 lg:mt-8">
         <div className="absolute inset-0">
           <Image
             src="/Page/homepage/Chapelle et vignes.jpeg"
             alt="Chapelle et vignes du Château Lastours"
             fill
-            className="object-cover hover:scale-105 transition-transform duration-700"
+            className="object-cover object-center sm:object-[center_center] lg:object-[center_50%] hover:scale-105 transition-transform duration-700"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent"></div>
           <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
@@ -342,8 +346,8 @@ export default function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl ml-auto">
               <div className="inline-block mb-6">
-                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
-                  Notre Histoire
+                <span className="text-xs sm:text-sm font-light tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
+                  Patrimoine
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light leading-[1.05] tracking-tight text-white mb-6 lg:mb-8">
@@ -377,13 +381,14 @@ export default function HomePage() {
       </section>
 
       {/* 4. L'ÉLÉGANCE D'UN ART DE VIVRE - PANORAMIQUE */}
-      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-12 lg:mt-16 mb-12 lg:mb-16">
+      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-6 lg:mt-8 mb-6 lg:mb-8">
         <div className="absolute inset-0">
           <Image
             src="/Page/homepage/Mariage au château.jpg"
             alt="Mariage au Château Lastours"
             fill
-            className="object-cover hover:scale-105 transition-transform duration-700"
+            className="object-cover object-center sm:object-[center_center] lg:object-[center_45%] hover:scale-105 transition-transform duration-700"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
           <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain"></div>
@@ -394,8 +399,8 @@ export default function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <div className="inline-block mb-6">
-                <span className="text-xs sm:text-sm font-medium tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
-                  Art de Vivre
+                <span className="text-xs sm:text-sm font-light tracking-[0.3em] uppercase text-[#D4AF37] border border-[#D4AF37]/40 px-4 py-2 rounded-sm bg-black/30 backdrop-blur-sm">
+                  Événements
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-light leading-[1.05] tracking-tight text-white mb-6 lg:mb-8">

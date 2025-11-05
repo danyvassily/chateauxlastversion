@@ -12,8 +12,8 @@ export default function DomeniBlancPage() {
   return (
     <WinePageLuxe
       wine={wine}
-      imagePath="/Page/Page Cuvée Domeni blanc/BLANC DOMENI.jpg"
-      pdfPath="/Page/Page Cuvée Domeni blanc/FT_blanc_Domeni 2024.pdf"
+      imagePath="/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée Domeni blanc/BLANC DOMENI.jpg"
+      pdfPath="/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée Domeni blanc/FT_blanc_Domeni 2024.pdf"
     />
   )
 }
@@ -33,7 +33,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${wine.name} ${wine.vintage} - Château Lastours`,
       description: wine.longDescription,
-      images: ["/Page/Page Cuvée Domeni blanc/BLANC DOMENI.jpg"],
+      images: ["/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée Domeni blanc/BLANC DOMENI.jpg"],
     },
   }
 }
