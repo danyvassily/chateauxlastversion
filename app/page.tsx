@@ -10,7 +10,6 @@ import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { getLatestArticles } from "@/lib/news-data"
 import { getUpcomingEvents } from "@/lib/events-data"
-import { encodeImagePath } from "@/lib/image-utils"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -160,7 +159,7 @@ export default function HomePage() {
           className="absolute inset-0 will-change-transform"
         >
           <Image
-            src={encodeImagePath("/chateau-lastours-hero.jpg")}
+            src="/chateau-lastours-hero.jpg"
             alt="Vignoble du Château Lastours au coucher du soleil"
             fill
             priority

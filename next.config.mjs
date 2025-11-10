@@ -8,28 +8,22 @@ const nextConfig = {
     optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
   },
 
-  // Optimisations images pour Vercel (optimisation automatique activée)
+  // Configuration images pour Vercel - Images locales uniquement
   images: {
-    // Vercel optimise automatiquement les images, pas besoin de unoptimized: true
+    // Formats modernes pour optimisation automatique Vercel
     formats: ["image/avif", "image/webp"],
+    // Tailles d'images pour responsive
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.netlify.app",
-      },
-      {
-        protocol: "https",
-        hostname: "**.vercel.app",
-      },
-      {
-        protocol: "https",
-        hostname: "localhost",
-      },
-    ],
-    // Configuration pour l'optimisation Vercel
+    // Pas de remotePatterns nécessaires pour les images locales dans /public
+    // Si vous avez des images distantes, décommenter et lister vos hôtes:
+    // remotePatterns: [
+    //   { protocol: "https", hostname: "cdn.votredomaine.com" },
+    // ],
+    // Cache TTL pour optimisation Vercel
     minimumCacheTTL: 60,
+    // IMPORTANT: Ne pas utiliser unoptimized: true sur Vercel
+    // Vercel optimise automatiquement les images via /_next/image
   },
 
   // Configuration pour le déploiement - désactivation temporaire des warnings
