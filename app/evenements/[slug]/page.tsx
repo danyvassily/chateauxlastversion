@@ -28,7 +28,13 @@ export default async function EventPage({ params }: EventPageProps) {
         {/* Hero */}
         <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-black/40" />
-          <Image src={event.image || "/wine-tasting-event.png"} alt={event.title} fill className="object-cover" />
+          <Image 
+            src={event.image || "/wine-tasting-event.png"} 
+            alt={event.title} 
+            fill 
+            sizes="100vw"
+            className="object-cover" 
+          />
           <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
             <h1 className="text-4xl md:text-6xl font-display mb-4 text-balance">{event.title}</h1>
             <p className="text-xl opacity-90">Partagez des moments d'exception au domaine</p>
