@@ -13,7 +13,7 @@ export default function MethodeRosePage() {
     <WinePageLuxe
       wine={wine}
       imagePath="/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode-rose/la-methode-rose.jpg"
-      pdfPath="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/FT_la_méthode_rosée_23.pdf"
+      pdfPath="/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode Rosé/FT_la_méthode_rosée_23.pdf"
     />
   )
 }

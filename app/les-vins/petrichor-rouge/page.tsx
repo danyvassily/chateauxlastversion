@@ -13,7 +13,7 @@ export default function PetrichorRougePage() {
     <WinePageLuxe
       wine={wine}
       imagePath="/page/nos-cuvee-ok/gamme-petrichor/page-cuvee-pertichor-rouge/petrichor-rouge.jpg"
-      pdfPath="/Page/Nos Cuvée-ok/Gamme Petrichor/Page Cuvée Pertichor Rouge/FT_Rouge_Petrichor_2020.pdf"
+      pdfPath="/page/nos-cuvee-ok/gamme-petrichor/page-cuvee Pertichor Rouge/FT_Rouge_Petrichor_2020.pdf"
     />
   )
 }

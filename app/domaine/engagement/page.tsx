@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nos Engagements Écoresponsables | Château Lastours",
     description: "Une viticulture durable en plein cœur du Sud-Ouest français.",
-    images: ["/Page/Notre vignoble - manque 1 photo/vignes-allee-de-platane-gaillac-france.jpg"],
+    images: ["/page/notre-vignoble-manque-1-photo/vignes-allee-de-platane-gaillac-france.jpg"],
   },
 };
 
@@ -28,7 +28,7 @@ const engagementSections = [
       alt: "Certification HVE au Château Lastours",
     },
     layout: "text-first",
-    logo: "/page/nos-engagement-ok/logo-HVE3.png",
+    logo: "/page/nos-engagement-ok/logo-hve3.png",
   },
   {
     id: "zero-insecticides",

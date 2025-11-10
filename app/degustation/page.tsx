@@ -130,7 +130,7 @@ export default function DegustationPage() {
                 {assets.gallery && assets.gallery.length > 1 && (
                   <div className="mt-6 relative h-64 md:h-80 rounded-xl overflow-hidden">
                     <Image
-                      src={assets.gallery[1] || "/Page/Degustation - ok/barrique-bois-cuve-beton-chateau-lastours-gaillac-sud-ouest-france.jpg"}
+                      src={assets.gallery[1] || "/page/degustation-ok/barrique-bois-cuve-beton-chateau-lastours-gaillac-sud-ouest-france.jpg"}
                       alt="Cuves béton et barriques en bois au Château Lastours"
                       fill
                       className="object-cover"

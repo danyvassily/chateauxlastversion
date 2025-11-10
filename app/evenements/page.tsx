@@ -149,7 +149,7 @@ export default function EvenementsPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                       <div className="relative aspect-[4/3] lg:aspect-auto bg-muted">
                         <Image
-                          src={event.image || "/Page/Nos evenements - ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"}
+                          src={event.image || "/page/nos-evenements-ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"}
                           alt={event.title}
                           fill
                           className="object-cover"
@@ -227,7 +227,7 @@ export default function EvenementsPage() {
                 <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="relative aspect-[4/3] bg-muted">
                     <Image
-                      src={event.image || "/Page/Nos evenements - ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"}
+                      src={event.image || "/page/nos-evenements-ok/jeune-pianiste-dans-jardins-a-la-francaise-chateau-lastours-gaillac-france.jpg"}
                       alt={event.title}
                       fill
                       className="object-cover"

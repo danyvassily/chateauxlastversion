@@ -13,7 +13,7 @@ export default function DomeniRougePage() {
     <WinePageLuxe
       wine={wine}
       imagePath="/page/nos-cuvee-ok/gamme-domeni/page-cuvee-domeni-rouge/rouge-domeni.jpg"
-      pdfPath="/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée Domeni Rouge/FT_rouge_Domeni_2022.pdf"
+      pdfPath="/page/nos-cuvee-ok/gamme-domeni/page-cuvee Domeni Rouge/FT_rouge_Domeni_2022.pdf"
     />
   )
 }

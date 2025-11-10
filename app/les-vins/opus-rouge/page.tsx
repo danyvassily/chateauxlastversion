@@ -13,7 +13,7 @@ export default function OpusRougePage() {
     <WinePageLuxe
       wine={wine}
       imagePath="/page/nos-cuvee-ok/gamme-opus/page-cuvee-opus-rouge/rouge-opus.jpg"
-      pdfPath="/Page/Nos Cuvée-ok/Gamme Opus/Page Cuvée Opus Rouge/FT_rouge_opus_2021.pdf"
+      pdfPath="/page/nos-cuvee-ok/gamme-opus/page-cuvee Opus Rouge/FT_rouge_opus_2021.pdf"
     />
   )
 }

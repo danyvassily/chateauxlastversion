@@ -30,7 +30,7 @@ export function SectionHero({
   className,
   children
 }: SectionHeroProps) {
-  const fallbackImage = "/PHOTOS-WEB-LASTOURS/VINIFICATION/Capture ameyric prod.JPG"
+  const fallbackImage = "/photos-web-lastours/vinification/capture-ameyric-prod.jpg"
   
   return (
     <section className={cn(

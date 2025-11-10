@@ -49,7 +49,7 @@ const terroirData = {
     title: "Des Cépages Autochtones Uniques",
     description: "Ce terroir vivant, vibrant, offre une expression rare de cépages autochtones : Mauzac, frais, évoquant la pomme verte et les fleurs blanches ; Loin de l'œil, un raisin blanc rare, quasi uniquement cultivé à Gaillac, connu pour produire des vins frais et fruités ; Duras, puissant, épicé et fruité ; Braucol, intense et sauvage, aux arômes de fruits noirs et d'épices ; Prunelard, puissant aux notes de fruits noirs, de pruneaux et de violettes.",
     description2: "Des variétés que l'on ne trouve nulle part ailleurs, et qui font toute l'identité unique des vins de Gaillac. Chaque cépage révèle le caractère authentique de notre terroir millénaire.",
-    image: "/photos/image00002.jpeg"
+    image: "/photos-web-lastours/vignes/vignes.jpg"
   },
   climat: {
     title: "Un Terroir d'Exception, Entre Ciel et Terre",
@@ -72,7 +72,7 @@ const terroirData = {
       id: "rive-gauche",
       title: "La Rive Gauche",
       description: "Sur la rive gauche, nos parcelles bénéficient des brumes matinales du Tarn qui préservent la fraîcheur des raisins. Terroir privilégié pour nos cépages blancs autochtones.",
-      image: "/photos/image00005.jpeg",
+      image: "/photos-web-lastours/vignes/vignes.jpg",
       superficie: "17 hectares",
       cepages: "Mauzac, Loin-de-l'œil",
       age: "30 ans"
@@ -81,7 +81,7 @@ const terroirData = {
       id: "plateau-cordais",
       title: "Le Plateau Cordais",
       description: "Le plateau cordais, avec ses sols argilo-calcaires, offre des conditions uniques pour l'expression de nos cépages. Cette diversité de terroirs contribue à la richesse de notre gamme.",
-      image: "/photos/image00036.jpeg",
+      image: "/photos-web-lastours/vignes/vignes.jpg",
       superficie: "17 hectares",
       cepages: "Prunelard, Mauzac",
       age: "25 ans"

@@ -15,11 +15,11 @@ export const ASSETS_MAP: Record<string, string[]> = {
   // Dégustation
   'degustation': [
     '/Page/Asset page dégustation/Degustation.html',
-    '/Page/Degustation - ok/aromes-primaires-vin-chateau-lastours-gaillac-sud-ouest-france.jpg',
-    '/Page/Degustation - ok/barrique-bois-cuve-beton-chateau-lastours-gaillac-sud-ouest-france.jpg',
-    '/Page/Degustation - ok/caveau-degustation-cuvees-chateau-lastours-gaillac-france.jpeg',
-    '/Page/Degustation - ok/degustation-vin-rouge-petrichor-chateau-lastours-gaillac-france.jpeg',
-    '/Page/Degustation - ok/verre-de-vin-brut-de-cuve-chateau-lastours-aop-aoc-gaillac-france.jpg'
+    '/page/degustation-ok/aromes-primaires-vin-chateau-lastours-gaillac-sud-ouest-france.jpg',
+    '/page/degustation-ok/barrique-bois-cuve-beton-chateau-lastours-gaillac-sud-ouest-france.jpg',
+    '/page/degustation-ok/caveau-degustation-cuvees-chateau-lastours-gaillac-france.jpeg',
+    '/page/degustation-ok/degustation-vin-rouge-petrichor-chateau-lastours-gaillac-france.jpeg',
+    '/page/degustation-ok/verre-de-vin-brut-de-cuve-chateau-lastours-aop-aoc-gaillac-france.jpg'
   ],
   
   // La vigne
@@ -53,20 +53,20 @@ export const ASSETS_MAP: Record<string, string[]> = {
   // Nos engagements
   'nos-engagements': [
     '/photos/bulle-de-jazz-2021-chazo-087.jpg',
-    '/PHOTOS-WEB-LASTOURS/VIGNES/1682596442650.jpg',
-    '/Page/Nos Engagement - ok/nos-engagements-agriculture-raisonnee-chateau-lastours-aop-aoc-gaillac-france.jpg',
-    '/Page/Nos Engagement - ok/libellule-rouge-vigne-grappe-de-raisin.jpg',
-    '/Page/Nos Engagement - ok/fleurs-roses-tronc-de-vigne.jpg',
-    '/Page/Nos Engagement - ok/mobilier-upcycle-chateau-lastours-gaillac.jpg',
-    '/Page/Nos Engagement - ok/logo-HVE3.png'
+    '/photos-web-lastours/vignes/1682596442650.jpg',
+    '/page/nos-engagement-ok/nos-engagements-agriculture-raisonnee-chateau-lastours-aop-aoc-gaillac-france.jpg',
+    '/page/nos-engagement-ok/libellule-rouge-vigne-grappe-de-raisin.jpg',
+    '/page/nos-engagement-ok/fleurs-roses-tronc-de-vigne.jpg',
+    '/page/nos-engagement-ok/mobilier-upcycle-chateau-lastours-gaillac.jpg',
+    '/page/nos-engagement-ok/logo-HVE3.png'
   ],
   
   // Nos événements
   'nos-evenements': [
-    '/Page/Nos événements - ok/UAG-LASTOURS-infinitygraphic-16.jpg',
-    '/Page/Nos événements - ok/bulle-de-jazz-2021-chazo-087.jpg',
-    '/Page/Nos événements - ok/PIANO JARDINS.jpg',
-    '/Page/Nos événements - ok/007.jpg',
+    '/page/nos-evenements-ok/UAG-LASTOURS-infinitygraphic-16.jpg',
+    '/page/nos-evenements-ok/bulle-de-jazz-2021-chazo-087.jpg',
+    '/page/nos-evenements-ok/PIANO JARDINS.jpg',
+    '/page/nos-evenements-ok/007.jpg',
     '/Page/Page Nos événement/Page Nos Evénement En.docx',
     '/Page/Page Nos événement/Page nos evenement Fr.docx'
   ],
@@ -92,33 +92,33 @@ export const ASSETS_MAP: Record<string, string[]> = {
   
   // Actualités
   'actualites': [
-    '/Page/Page Actualité - ok/Article Petrichor En.docx',
-    '/Page/Page Actualité - ok/Article Petrichor Fr.docx',
-    '/Page/Page Actualité - ok/Article fête des vins de Gaillac En.docx',
-    '/Page/Page Actualité - ok/Article fête des vins de Gaillac Fr.docx',
-    '/Page/Page Actualité - ok/Page Actualité En.docx',
-    '/Page/Page Actualité - ok/Page Actualité Fr.docx',
-    '/Page/Page Actualité - ok/Article Arnaud Liard.docx',
-    '/Page/Page Actualité - ok/Article sur vendanges 2025.docx',
-    '/Page/Page Actualité - ok/actualites-chateau-lastours-gaillac-france.jpeg',
-    '/Page/Page Actualité - ok/portrait-artiste-placticien-francais-arnaud-liard.jpeg',
-    '/Page/Page Actualité - ok/actualite-evenements-chateau-lastours-gaillac-france.jpg',
-    '/Page/Page Actualité - ok/Salon-Vignerons-Independants-Paris-2025-france.jpg',
-    '/Page/Page Actualité - ok/machine-a-vendanger-chateau-lastours-gaillac-2025.jpg',
-    '/Page/Page Actualité - ok/fete-des-vins-2025-gaillac-sud-ouest-france.jpeg',
-    '/Page/Page Actualité - ok/vin-rose-gastronomique-elevage-barrique-petrichor.jpg'
+    '/page/page-actualite-ok/Article Petrichor En.docx',
+    '/page/page-actualite-ok/Article Petrichor Fr.docx',
+    '/page/page-actualite-ok/Article fête des vins de Gaillac En.docx',
+    '/page/page-actualite-ok/Article fête des vins de Gaillac Fr.docx',
+    '/page/page-actualite-ok/Page Actualité En.docx',
+    '/page/page-actualite-ok/Page Actualité Fr.docx',
+    '/page/page-actualite-ok/Article Arnaud Liard.docx',
+    '/page/page-actualite-ok/Article sur vendanges 2025.docx',
+    '/page/page-actualite-ok/actualites-chateau-lastours-gaillac-france.jpeg',
+    '/page/page-actualite-ok/portrait-artiste-placticien-francais-arnaud-liard.jpeg',
+    '/page/page-actualite-ok/actualite-evenements-chateau-lastours-gaillac-france.jpg',
+    '/page/page-actualite-ok/Salon-Vignerons-Independants-Paris-2025-france.jpg',
+    '/page/page-actualite-ok/machine-a-vendanger-chateau-lastours-gaillac-2025.jpg',
+    '/page/page-actualite-ok/fete-des-vins-2025-gaillac-sud-ouest-france.jpeg',
+    '/page/page-actualite-ok/vin-rose-gastronomique-elevage-barrique-petrichor.jpg'
   ],
   
   // Méthode Blanche
   'methode-blanche': [
-    '/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/FT_la_méthode_blanc.pdf',
-    '/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/LA METHODE BLANC.jpg'
+    '/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode Blanche/FT_la_méthode_blanc.pdf',
+    '/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode Blanche/LA METHODE BLANC.jpg'
   ],
   
   // Méthode Rosé
   'methode-rose': [
-    '/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/FT_la_méthode_rosée_23.pdf',
-    '/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/LA METHODE ROSE.jpg'
+    '/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode Rosé/FT_la_méthode_rosée_23.pdf',
+    '/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode Rosé/LA METHODE ROSE.jpg'
   ]
 }
 

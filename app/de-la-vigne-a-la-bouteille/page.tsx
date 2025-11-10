@@ -98,7 +98,7 @@ export default function DeLaVigneALaBouteillePage() {
     <div className="min-h-screen relative bg-white" data-page="de-la-vigne-a-la-bouteille">
       {/* Hero Section - Image d'en-tête avec texte adossé */}
       <HeroStandard
-        imageSrc="/asset/de-la-vigne-a-la-bouteille/elevage-vin-chai-a-barrique-chateau-lastours.JPG"
+        imageSrc="/asset/de-la-vigne-a-la-bouteille/elevage-vin-chai-a-barrique-chateau-lastours.jpg"
         title="De la Vigne à la bouteille"
         subtitle="Plongez dans le voyage captivant de nos raisins, qui, de trésors viticoles, deviennent l'expression en bouteille de notre passion et de notre héritage. Au Château Lastours, chaque étape de notre travail de vinification révèle une histoire de dévouement, de respect de la nature et de la magie qui transforme le fruit en un grand vin. Bienvenue au cœur du vignoble et de la cave, là où tradition et art se rencontrent."
       />

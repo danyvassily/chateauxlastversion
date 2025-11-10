@@ -29,9 +29,9 @@ export function LogoGallery({ logos = [], className }: LogoGalleryProps) {
     ? logos 
     : [
         {
-          src: "/PHOTOS-WEB-LASTOURS/LOGO/logo-chateau-lastours.jpg",
+          src: "/photos-web-lastours/logo/logo-chateau-lastours.jpg",
           alt: "Logo Château Lastours",
-          downloadUrl: "/PHOTOS-WEB-LASTOURS/LOGO/logo-chateau-lastours.jpg",
+          downloadUrl: "/photos-web-lastours/logo/logo-chateau-lastours.jpg",
           format: "JPG"
         }
       ]

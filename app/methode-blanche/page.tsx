@@ -112,7 +112,7 @@ export default function MethodeBlanchePage() {
             <div className="pt-6">
               <Button asChild size="lg" className="text-lg px-8 py-3">
                 <a 
-                  href="/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/FT_la_méthode_blanc.pdf"
+                  href="/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode Blanche/FT_la_méthode_blanc.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

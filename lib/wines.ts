@@ -18,20 +18,20 @@ export type Gamme = {
 
 // Map des PDFs avec noms spécifiques (overrides)
 const pdfOverrides: Record<string, string> = {
-  "claire-de-lune": "/Page/Nos Cuvée-ok/Gamme Confidentiel/Page cuvée Claire de Lune/FT_blanc_claire_de_lune_2023.pdf",
-  "domeni-blanc": "/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée Domeni blanc/FT_blanc_Domeni 2024.pdf",
-  "domeni-rose": "/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée domeni Rosé/FT_rosé_Domeni_2024 (1).pdf",
-  "domeni-rouge": "/Page/Nos Cuvée-ok/Gamme Domeni/Page Cuvée Domeni Rouge/FT_rouge_Domeni_2022.pdf",
-  "opus-blanc": "/Page/Nos Cuvée-ok/Gamme Opus/Page Cuvée Opus Blanc/FT_blanc_Opus_2023.pdf",
-  "opus-rouge": "/Page/Nos Cuvée-ok/Gamme Opus/Page Cuvée Opus Rouge/FT_rouge_opus_2021.pdf",
-  "petrichor-rouge": "/Page/Nos Cuvée-ok/Gamme Petrichor/Page Cuvée Pertichor Rouge/FT_Rouge_Petrichor_2020.pdf",
-  "petrichor-rose": "/Page/Nos Cuvée-ok/Gamme Petrichor/Page Cuvée Petrichor Rosé/FT_Rosé_Petrichor_2024.pdf",
-  "pigeonnier": "/Page/Nos Cuvée-ok/Gamme Confidentiel/Page Cuvée Pigeonnier/FT_Rouge_Cuvée_du_Pigeonnier_2022.pdf",
-  "perle": "/Page/Nos Cuvée-ok/Gamme perlé/Page cuvée Perlé/FT_perlé_2023.pdf",
-  "poussin-blanc": "/Page/Nos Cuvée-ok/Gamme poussin/Page Cuvée poussin Blanc/FT_poussin_moelleux_2024.pdf",
-  "poussin-rose": "/Page/Nos Cuvée-ok/Gamme poussin/Page Cuvée Poussin Rosé/FT_poussin rosé_moelleux_2024.pdf",
-  "methode-blanc": "/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Blanche/FT_la_méthode_blanc.pdf",
-  "methode-rose": "/Page/Nos Cuvée-ok/Gamme Méthode Ancestral/Page Méthode Rosé/FT_la_méthode_rosée_23.pdf"
+  "claire-de-lune": "/page/nos-cuvee-ok/gamme-confidentiel/page-cuvee-claire-de-lune/FT_blanc_claire_de_lune_2023.pdf",
+  "domeni-blanc": "/page/nos-cuvee-ok/gamme-domeni/page-cuvee-domeni-blanc/FT_blanc_Domeni 2024.pdf",
+  "domeni-rose": "/page/nos-cuvee-ok/gamme-domeni/page-cuvee-domeni-rose/FT_rosé_Domeni_2024 (1).pdf",
+  "domeni-rouge": "/page/nos-cuvee-ok/gamme-domeni/page-cuvee-domeni-rouge/FT_rouge_Domeni_2022.pdf",
+  "opus-blanc": "/page/nos-cuvee-ok/gamme-opus/page-cuvee-opus-blanc/FT_blanc_Opus_2023.pdf",
+  "opus-rouge": "/page/nos-cuvee-ok/gamme-opus/page-cuvee-opus-rouge/FT_rouge_opus_2021.pdf",
+  "petrichor-rouge": "/page/nos-cuvee-ok/gamme-petrichor/page-cuvee-pertichor-rouge/FT_Rouge_Petrichor_2020.pdf",
+  "petrichor-rose": "/page/nos-cuvee-ok/gamme-petrichor/page-cuvee-petrichor-rose/FT_Rosé_Petrichor_2024.pdf",
+  "pigeonnier": "/page/nos-cuvee-ok/gamme-confidentiel/page-cuvee-pigeonnier/FT_Rouge_Cuvée_du_Pigeonnier_2022.pdf",
+  "perle": "/page/nos-cuvee-ok/gamme-perle/page-cuvee-perle/FT_perlé_2023.pdf",
+  "poussin-blanc": "/page/nos-cuvee-ok/gamme-poussin/page-cuvee poussin Blanc/FT_poussin_moelleux_2024.pdf",
+  "poussin-rose": "/page/nos-cuvee-ok/gamme-poussin/page-cuvee Poussin Rosé/FT_poussin rosé_moelleux_2024.pdf",
+  "methode-blanc": "/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode-blanche/FT_la_méthode_blanc.pdf",
+  "methode-rose": "/page/nos-cuvee-ok/gamme-methode-ancestral/page-methode-rose/FT_la_méthode_rosée_23.pdf"
 };
 
 // Helper pour obtenir le PDF path

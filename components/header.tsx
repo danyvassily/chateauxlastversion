@@ -348,7 +348,7 @@ export function Header() {
           <div className="flex-shrink-0 mx-4 lg:mx-6">
             <Link href="/" className="flex items-center">
               <Image
-                src="/PHOTOS-WEB-LASTOURS/LOGO/logo-chateau-lastours.jpg"
+                src="/photos-web-lastours/logo/logo-chateau-lastours.jpg"
                 alt="Château Lastours"
                 width={60}
                 height={50}
