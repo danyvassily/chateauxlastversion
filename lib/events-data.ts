@@ -1,6 +1,6 @@
-export type EventType = "Festival" | "Dégustation" | "Formation" | "Dîner romantique" | "Événement familial"
+type EventType = "Festival" | "Dégustation" | "Formation" | "Dîner romantique" | "Événement familial"
 
-export interface EventItem {
+interface EventItem {
   id: string
   slug: string
   title: string
@@ -133,10 +133,6 @@ export function getAllEvents() {
 
 export function getEventBySlug(slug: string) {
   return events.find((e) => e.slug === slug)
-}
-
-export function getFeaturedEvents() {
-  return events.filter((e) => e.featured)
 }
 
 export function getUpcomingEvents(after: Date = new Date()) {

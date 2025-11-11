@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { TransitionLink } from "@/components/gsap/TransitionLink";
 import { SPACING } from "@/lib/constants";
@@ -115,10 +116,13 @@ export default function LeCycleDeLaVignePage() {
       {/* Hero Section - Style Histoire */}
       <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden mt-6 lg:mt-8 mb-6 lg:mb-8">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/asset/le-cycle-de-la-vigne/jardins-a-la-francaise-lever-de-soleil.jpeg"
             alt="Jardins à la française au lever du soleil au Château Lastours"
-            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+            fill
+            priority
+            className="w-full h-full object-cover object-center"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
           <div className="absolute inset-0 opacity-[0.12] pointer-events-none grain" />
@@ -154,10 +158,12 @@ export default function LeCycleDeLaVignePage() {
         >
           {/* Image panoramique pleine largeur */}
           <div className="relative h-[65vh] lg:h-[75vh] xl:h-[85vh] overflow-hidden">
-            <img
+            <Image
               src={section.image.src}
               alt={section.image.alt}
-              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+              fill
+              className="w-full h-full object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             
             {/* Overlay gradient subtil */}

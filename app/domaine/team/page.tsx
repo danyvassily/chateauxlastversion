@@ -2,59 +2,46 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Mail, Phone, Users, Award, Heart } from "lucide-react"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
-// Composant Image simple pour les chemins avec espaces
+// Remplacement de TeamImage par Next/Image
 function TeamImage({ 
   src, 
   alt, 
   className = "",
   containerClassName = "",
   fill = false,
+  priority = false,
   objectFit = "cover",
   objectPosition = "center center",
-  overflow = "hidden"
+  sizes
 }: {
   src: string
   alt: string
   className?: string
   containerClassName?: string
   fill?: boolean
+  priority?: boolean
   objectFit?: "cover" | "contain"
   objectPosition?: string
-  overflow?: "hidden" | "visible"
+  sizes?: string
 }) {
-  const [isLoading, setIsLoading] = useState(true)
-  const [hasError, setHasError] = useState(false)
-
   return (
-    <div className={cn("relative", overflow === "hidden" ? "overflow-hidden" : "overflow-visible", containerClassName)}>
-      {isLoading && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
-      )}
-      <img
+    <div className={cn("relative", containerClassName)}>
+      <Image
         src={src}
         alt={alt}
+        fill={fill}
+        priority={priority}
+        className={cn(className, "transition-opacity duration-300")}
         style={{
           objectFit: objectFit,
           objectPosition: objectPosition
         }}
-        className={cn(
-          fill ? "w-full h-full" : "",
-          "transition-opacity duration-300",
-          isLoading ? "opacity-0" : "opacity-100",
-          hasError && "grayscale",
-          className
-        )}
-        onLoad={() => setIsLoading(false)}
-        onError={() => {
-          setHasError(true)
-          setIsLoading(false)
-        }}
-        loading={fill ? "eager" : "lazy"}
-        decoding="async"
+        sizes={sizes}
       />
     </div>
   )
@@ -70,10 +57,11 @@ export default function TeamPage() {
             src="/page/page-team/photos-page-team/photo-de-groupe.jpeg"
             alt="Équipe du Château Lastours"
             fill
+            priority
             objectFit="contain"
-            overflow="visible"
             containerClassName="w-full h-full"
             className="w-full h-full"
+            sizes="100vw"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
@@ -106,6 +94,7 @@ export default function TeamPage() {
                       objectPosition="center 30%"
                       containerClassName="absolute inset-0"
                       className="w-full h-full"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 </div>
@@ -158,6 +147,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -180,6 +170,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -202,6 +193,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -224,6 +216,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -246,6 +239,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -268,6 +262,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">
@@ -290,6 +285,7 @@ export default function TeamPage() {
                   objectPosition="center 30%"
                   containerClassName="absolute inset-0"
                   className="w-full h-full"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6">

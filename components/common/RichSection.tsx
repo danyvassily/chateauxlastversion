@@ -11,7 +11,7 @@ interface RichSectionProps {
   imageFirst?: boolean
   kicker?: string
   className?: string
-  variant?: 'default' | 'accent' | 'light'
+  variant?: 'default' | 'accent' | 'light' | 'dark'
 }
 
 export function RichSection({
@@ -27,13 +27,15 @@ export function RichSection({
   const bgClasses = {
     default: 'bg-gray-50',
     accent: 'bg-accent-50 text-gray-900',
-    light: 'bg-white'
+    light: 'bg-white',
+    dark: 'bg-gray-900'
   }
 
   const textClasses = {
     default: 'text-gray-900',
     accent: 'text-gray-900',
-    light: 'text-gray-900'
+    light: 'text-gray-900',
+    dark: 'text-gray-100'
   }
 
   return (
@@ -71,6 +73,7 @@ export function RichSection({
             
             <div className={cn(
               "prose prose-lg max-w-none",
+              variant === 'dark' ? "prose-invert" : "",
               "prose-headings:font-serif prose-headings:tracking-wide",
               "prose-p:leading-relaxed prose-p:text-lg"
             )}>
@@ -89,10 +92,12 @@ export function RichSection({
               imageFirst ? "lg:col-start-1" : ""
             )}>
               <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <Image
                   src={imageSrc}
                   alt={imageAlt || title}
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 grain-subtle" />
               </div>

@@ -26,6 +26,18 @@ function removeAccents(str: string): string {
 }
 
 /**
+ * Normalise un nom en minuscule, sans accents ni caractères spéciaux
+ */
+function normalizeName(name: string): string {
+  if (!name) return ""
+  return removeAccents(name)
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Garde lettres, chiffres, espaces, tirets
+    .replace(/[\s-]+/g, ' ') // Remplace espaces/tirets multiples par un seul espace
+}
+
+/**
  * Convertit une chaîne en slug compatible URL
  * @param input - La chaîne à convertir
  * @returns Le slug normalisé
@@ -38,19 +50,6 @@ export function toSlug(input: string): string {
     .replace(/\s+/g, '-') // Remplace les espaces par des tirets
     .replace(/-+/g, '-') // Remplace les tirets multiples par un seul
     .replace(/^-|-$/g, '') // Supprime les tirets en début/fin
-}
-
-/**
- * Normalise un nom de dossier/fichier pour le matching
- * @param input - Le nom à normaliser
- * @returns Le nom normalisé
- */
-export function normalizeName(input: string): string {
-  return removeAccents(input)
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ') // Remplace tout sauf lettres/chiffres par des espaces
-    .replace(/\s+/g, ' ') // Normalise les espaces multiples
-    .trim()
 }
 
 /**
@@ -75,16 +74,4 @@ export function namesMatch(name1: string, name2: string): boolean {
   
   const commonWords = words1.filter(word => words2.includes(word))
   return commonWords.length >= Math.min(words1.length, words2.length) * 0.6
-}
-
-/**
- * Extrait le nom de base d'un chemin de fichier
- * @param filePath - Le chemin du fichier
- * @returns Le nom de base sans extension
- */
-export function getBaseName(filePath: string): string {
-  return filePath
-    .split('/')
-    .pop()
-    ?.replace(/\.[^.]+$/, '') || ''
 }

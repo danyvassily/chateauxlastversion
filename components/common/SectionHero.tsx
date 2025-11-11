@@ -43,16 +43,10 @@ export function SectionHero({
         <LazyImage
           src={imageSrc || fallbackImage}
           alt={title}
-          containerClassName="w-full h-full"
-          className="w-full h-full"
-          objectFit="cover"
-          objectPosition="center"
-          fallbackSrc={fallbackImage}
-          placeholder={
-            <div className="absolute inset-0 bg-gradient-to-br from-muted via-muted/80 to-muted">
-              <div className="absolute inset-0 grain-subtle opacity-20" />
-            </div>
-          }
+          width={1920}
+          height={1080}
+          priority
+          className="w-full h-full object-cover"
         />
       </div>
 

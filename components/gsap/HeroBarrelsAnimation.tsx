@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, ReactNode } from 'react'
+import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FloatingParticles } from './FloatingParticles'
@@ -12,14 +13,13 @@ interface HeroBarrelsAnimationProps {
 
 export function HeroBarrelsAnimation({ children, className = '' }: HeroBarrelsAnimationProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const imageRef = useRef<HTMLImageElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
     const container = containerRef.current
-    const image = imageRef.current
+    const image = container?.querySelector('img') // Cibler l'image via le container
     const overlay = overlayRef.current
 
     if (!container || !image || !overlay) return
@@ -89,23 +89,20 @@ export function HeroBarrelsAnimation({ children, className = '' }: HeroBarrelsAn
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
-      {/* Image héroïque avec fallback */}
-      <img
-        ref={imageRef}
+      {/* Image héroïque avec Next/Image */}
+      <Image
         src="/page/nos-cuvee-ok/photo-entete-de-page-cuvees-blanc/vin-blanc-rouge-rose-bulles-gaillac-sud-ouest-france.jpg"
         alt="Vins du Château Lastours - Collections d'Exception"
-        className="w-full h-full object-cover"
+        fill
+        priority
+        className="object-cover"
         style={{ 
           objectPosition: 'center center',
           filter: 'contrast(1.05) saturate(1.05) brightness(0.7)'
         }}
-        onError={(e) => {
-          // Fallback vers l'image de la cave si l'image principale n'est pas disponible
-          const target = e.target as HTMLImageElement
-          if (target.src.includes('Vin-Blanc-Rouge-Rosé-Bulles-Gaillac-Sud-Ouest-France.jpg')) {
-            target.src = '/french-chateau-wine-cellar.png'
-          }
-        }}
+        // Le fallback onError n'est pas directement supporté de la même manière.
+        // La meilleure pratique est de s'assurer que l'image existe au build.
+        // Si un fallback dynamique est requis, il faudrait une logique plus complexe avec un état.
       />
       
       {/* Overlay gradient */}

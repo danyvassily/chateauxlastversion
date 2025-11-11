@@ -131,96 +131,38 @@ ls -R public/Page/
 ls -R public/PHOTOS-WEB-LASTOURS/
 ```
 
-## 🚢 Déploiement sur GitHub
+## 🚀 Déploiement
 
-### 📤 Pusher l'application sur le nouveau repository
+Ce projet est optimisé pour un déploiement sur **Vercel**.
 
-Une fois que vous avez placé tous les assets dans le dossier `public/`, suivez ces étapes :
+### Prérequis
 
-#### 1. Configuration du remote Git
-
-```bash
-# Se placer dans le dossier du projet
-cd /Users/danyvassily/dev\ /chateaulastour-mvp/chateaulastour
-
-# Vérifier les remotes existants
-git remote -v
-
-# Ajouter le nouveau remote (si pas déjà fait)
-git remote add origin git@github.com:danyvassily/mvpfinal.git
-
-# Ou mettre à jour le remote existant
-git remote set-url origin git@github.com:danyvassily/mvpfinal.git
-```
-
-#### 2. Préparer les fichiers
+- **Node.js** : Version `20.x` ou supérieure est recommandée.
+- **Compte Vercel** : Connecté à votre repository GitHub.
+- **Variables d'environnement** : Assurez-vous que toutes les variables d'environnement nécessaires sont configurées dans les paramètres de votre projet Vercel.
 
 ```bash
-# Vérifier le statut
-git status
-
-# Ajouter tous les fichiers (sauf ceux dans .gitignore)
-git add .
-
-# Créer un commit
-git commit -m "feat: Application MVP Château Lastours complète"
+# Exemple de variables nécessaires (à adapter)
+DATABASE_URL="votre_url_de_base_de_données"
+NEXTAUTH_SECRET="votre_secret_nextauth"
+NEXT_PUBLIC_API_URL="https://votre-site.com/api"
 ```
 
-#### 3. Pusher sur GitHub
+### Processus de Déploiement
 
-```bash
-# Pusher sur la branche main
-git push -u origin main
+1.  **Push sur GitHub** : Chaque `push` sur la branche `main` déclenchera automatiquement un déploiement sur Vercel.
+2.  **Configuration Vercel** :
+    *   **Framework Preset** : `Next.js`.
+    *   **Build Command** : `pnpm build` (ou `next build` si vous utilisez npm/yarn).
+    *   **Output Directory** : Laisser par défaut (`.next`).
+    *   **Install Command** : `pnpm install` (ou `npm install`).
 
-# Si vous avez des conflits avec l'historique existant, vous pouvez forcer (⚠️ attention)
-git push -u origin main --force
-```
+### Notes Techniques sur le Déploiement Vercel
 
-### 🔐 Configuration SSH
-
-Si vous n'avez pas encore configuré SSH avec GitHub :
-
-```bash
-# Générer une clé SSH (si nécessaire)
-ssh-keygen -t ed25519 -C "votre.email@example.com"
-
-# Copier la clé publique
-cat ~/.ssh/id_ed25519.pub
-
-# Ajouter la clé dans GitHub :
-# GitHub > Settings > SSH and GPG keys > New SSH key
-```
-
-### 📝 Notes importantes sur le push
-
-- ⚠️ **Les assets du dossier `public/` peuvent être trop volumineux** pour GitHub si vous les versionnez tous
-- 💡 **Solution recommandée** : 
-  - Garder les assets volumineux en local ou sur un CDN
-  - Versionner uniquement les assets critiques (< 100MB au total)
-  - Utiliser Git LFS (Large File Storage) pour les gros fichiers si nécessaire
-
-#### Installation de Git LFS (optionnel)
-
-Si vous devez versionner des gros fichiers :
-
-```bash
-# Installer Git LFS
-brew install git-lfs  # macOS
-# ou télécharger depuis https://git-lfs.github.com/
-
-# Initialiser Git LFS
-git lfs install
-
-# Tracker les types de fichiers volumineux
-git lfs track "*.jpg"
-git lfs track "*.jpeg"
-git lfs track "*.png"
-git lfs track "*.pdf"
-
-# Ajouter le fichier .gitattributes
-git add .gitattributes
-git commit -m "chore: configure Git LFS"
-```
+-   **Optimisation des Images** : Le projet utilise le composant `<Image>` de Next.js. Vercel optimise automatiquement les images à la volée. Aucune configuration supplémentaire n'est nécessaire pour les images locales situées dans `/public`.
+-   **Middleware** : Le fichier `middleware.ts` est configuré pour s'exécuter sur les routes pertinentes, en excluant les assets statiques et les routes d'API pour des performances optimales.
+-   **Fichiers Statiques** : Tous les assets statiques (images, polices, `robots.txt`) sont servis efficacement depuis le dossier `/public`.
+-   **Build Propre** : Le projet a été nettoyé pour s'assurer que `next build` s'exécute sans erreur et avec un minimum d'avertissements.
 
 ## 📜 Scripts disponibles
 

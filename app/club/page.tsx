@@ -72,10 +72,9 @@ export default function ClubPage() {
                 <LazyImage
                   src="/exclusive-french-wine-club.png"
                   alt="Club exclusif Château Lastours"
-                  containerClassName="h-96 lg:h-[500px] rounded-lg shadow-2xl"
-                  className="hover:scale-105 transition-transform duration-700"
-                  aspectRatio="landscape"
-                  objectFit="cover"
+                  width={800}
+                  height={600}
+                  className="h-96 lg:h-[500px] rounded-lg shadow-2xl object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>

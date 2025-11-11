@@ -67,11 +67,10 @@ public/*clean*/
 
 # Fichiers images volumineux (> 1MB)
 *.mov
-*.mp4
+
 *.avi# Fichiers d'optimisation temporaires
-.public_used/
-*-optimized.jpg
-*-optimized.png
+
+
 
 # Dossiers de développement
 audit/

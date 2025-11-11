@@ -4,14 +4,14 @@
 
 import { toSlug, namesMatch } from './slug'
 
-export interface PageAssets {
+interface PageAssets {
   hero?: string
   gallery: string[]
   documents: string[]
 }
 
 // Mapping statique des assets disponibles (généré à partir de l'analyse du dossier)
-export const ASSETS_MAP: Record<string, string[]> = {
+const ASSETS_MAP: Record<string, string[]> = {
   // Dégustation
   'degustation': [
     '/Page/Asset page dégustation/Degustation.html',
@@ -123,7 +123,7 @@ export const ASSETS_MAP: Record<string, string[]> = {
 }
 
 // Pages qui manquent des photos selon la spécification
-export const MISSING_ASSETS: Record<string, string[]> = {
+const MISSING_ASSETS: Record<string, string[]> = {
   'notre-chai': ['Une photo supplémentaire du chai'],
   'notre-vignoble': ['Une photo supplémentaire du vignoble']
 }
@@ -188,16 +188,4 @@ export function getPageFallbacks(pageId: string): {
     missingAssets,
     needsHeroFallback: !assets.hero
   }
-}
-
-/**
- * Vérifie si une page a tous ses assets
- * @param pageId - L'ID de la page
- * @returns true si la page a tous ses assets
- */
-export function hasCompleteAssets(pageId: string): boolean {
-  const assets = getPageAssets(pageId)
-  const missingAssets = MISSING_ASSETS[pageId] || []
-  
-  return assets.hero !== undefined && missingAssets.length === 0
 }

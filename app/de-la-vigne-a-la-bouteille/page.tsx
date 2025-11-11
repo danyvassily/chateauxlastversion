@@ -7,12 +7,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-// Styles pour garantir le texte blanc sur les boutons
-const buttonWhiteTextStyle: React.CSSProperties = {
-  color: '#ffffff',
-  backgroundColor: '#0f172a',
-};
-
 export const metadata: Metadata = {
   title: "De la Vigne à la bouteille | Château Lastours",
   description: "Plongez dans le voyage captivant de nos raisins, qui, de trésors viticoles, deviennent l'expression en bouteille de notre passion et de notre héritage. Au Château Lastours, chaque étape de notre travail de vinification révèle une histoire de dévouement, de respect de la nature et de la magie qui transforme le fruit en un grand vin.",
@@ -160,17 +154,15 @@ export default function DeLaVigneALaBouteillePage() {
               <Link 
                 href="/reservation"
                 className="inline-flex items-center justify-center min-h-[44px] px-8 py-6 text-base rounded-md !bg-slate-900 hover:!bg-slate-800 !text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-                style={buttonWhiteTextStyle}
               >
-                <span style={{ color: '#ffffff' }}>Visiter le Domaine</span>
-                <ArrowRight className="ml-2 w-5 h-5" style={{ color: '#ffffff' }} />
+                <span>Visiter le Domaine</span>
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link 
                 href="/les-vins"
                 className="inline-flex items-center justify-center min-h-[44px] px-8 py-6 text-base rounded-md !bg-slate-900 hover:!bg-slate-800 !text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-                style={buttonWhiteTextStyle}
               >
-                <span style={{ color: '#ffffff' }}>Découvrir nos Cuvées</span>
+                <span>Découvrir nos Cuvées</span>
               </Link>
             </div>
           </div>
@@ -200,9 +192,8 @@ export default function DeLaVigneALaBouteillePage() {
                 <TransitionLink 
                   href="/reservation"
                   className="inline-flex items-center px-16 py-6 !bg-slate-900 hover:!bg-slate-800 border border-slate-900 hover:border-slate-800 !text-white font-light text-lg tracking-wide transition-all duration-700 backdrop-blur-sm hover:scale-[1.02] shadow-2xl group focus:outline-none focus:ring-2 focus:ring-wine-gold focus:ring-offset-2 min-h-[44px] rounded-md"
-                  style={buttonWhiteTextStyle}
                 >
-                  <span style={{ color: '#ffffff' }}>Planifiez votre visite</span>
+                  <span>Planifiez votre visite</span>
                 </TransitionLink>
               </div>
             </div>

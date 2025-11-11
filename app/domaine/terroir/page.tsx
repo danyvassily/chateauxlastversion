@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { TextBlock } from "@/components/common/TextBlock";
@@ -109,10 +110,13 @@ export default function TerroirPage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Image de fond avec parallax subtil */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/page/la-vigne-ok/grappe-de-raisins-en-veraison-chateau-lastours-gaillac-france.jpg"
             alt="Notre Terroir - Vignoble Château Lastours"
-            className="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-700 hover:scale-100"
+            fill
+            priority
+            className="object-cover scale-105"
+            sizes="100vw"
           />
           {/* Overlay gradients multiples pour plus de profondeur */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/70" />
@@ -256,10 +260,12 @@ export default function TerroirPage() {
       <section className="relative z-10 mb-24 lg:mb-36 xl:mb-44">
         {/* Image panoramique pleine largeur */}
         <div className="relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
-          <img
+          <Image
             src={terroirData.cepages.image}
             alt="Cépages traditionnels gaillacois"
-            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-[3000ms]"
+            fill
+            className="w-full h-full object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           
           {/* Overlay gradient subtil */}
@@ -297,10 +303,12 @@ export default function TerroirPage() {
       <section className="relative z-10 mb-24 lg:mb-36 xl:mb-44">
         {/* Image panoramique pleine largeur */}
         <div className="relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
-          <img
+          <Image
             src={terroirData.climat.image}
             alt="Vignoble à l'heure bleue"
-            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-[3000ms]"
+            fill
+            className="w-full h-full object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           
           {/* Overlay gradient subtil */}
@@ -352,10 +360,12 @@ export default function TerroirPage() {
               <div key={parcelle.id} className="relative">
                 {/* Image panoramique */}
                 <div className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
-                  <img
+                  <Image
                     src={parcelle.image}
                     alt={parcelle.title}
-                    className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-[3000ms]"
+                    fill
+                    className="w-full h-full object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   
                   {/* Overlay gradient */}

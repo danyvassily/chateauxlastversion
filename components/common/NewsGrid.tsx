@@ -7,7 +7,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
-export interface NewsItem {
+interface NewsItem {
   slug: string
   title: string
   excerpt: string

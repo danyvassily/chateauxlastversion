@@ -33,26 +33,19 @@ export function HeroEvent({
   return (
     <section 
       className={cn(
-        "relative overflow-hidden",
-        "min-h-[calc(100vh-80px)]", // 80px = hauteur header sticky
-        "mt-0", // Zéro espace au-dessus pour alignement sous menu sticky
-        className
+        "relative min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden"
       )}
       style={{ marginTop: 0 }}
     >
-      {/* Image de fond full-bleed */}
-      <div className="absolute inset-0 overflow-hidden rounded-b-[11px] lg:rounded-b-[18px]">
+      {/* Image de fond */}
+      <div className="absolute inset-0">
         <LazyImage
           src={imageSrc}
           alt={title}
-          containerClassName="w-full h-full"
+          width={1920}
+          height={1080}
+          priority
           className="w-full h-full object-cover object-center"
-          fallbackSrc="/photos-web-lastours/vinification/capture-ameyric-prod.jpg"
-          placeholder={
-            <div className="absolute inset-0 bg-gradient-to-br from-muted via-muted/80 to-muted">
-              <div className="absolute inset-0 grain-subtle opacity-20" />
-            </div>
-          }
         />
       </div>
 

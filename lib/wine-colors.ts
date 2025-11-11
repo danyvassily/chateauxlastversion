@@ -1,6 +1,6 @@
 import type { Wine } from "./wines-data"
 
-export interface WineColorTheme {
+interface WineColorTheme {
   primary: string // Couleur principale pour les accents
   secondary: string // Couleur secondaire
   gradient: string // Gradient de fond
@@ -8,10 +8,11 @@ export interface WineColorTheme {
   badge: string // Couleur pour les badges
   text: string // Couleur du texte accentué
   border: string // Couleur des bordures
+  bullet: string // Couleur pour les puces
 }
 
 // Couleurs sobres et élégantes pour chaque type de vin
-export const wineColorThemes: Record<string, WineColorTheme> = {
+const wineColorThemes: Record<string, WineColorTheme> = {
   // Vins Rouges - Tons bordeaux/grenat profonds
   rouge: {
     primary: "#6B1E3F", // Bordeaux profond
@@ -20,7 +21,8 @@ export const wineColorThemes: Record<string, WineColorTheme> = {
     overlay: "bg-red-950/10",
     badge: "bg-red-900/30 border-red-800/40 text-red-200",
     text: "text-red-200",
-    border: "border-red-900/30"
+    border: "border-red-900/30",
+    bullet: "bg-red-300/70"
   },
   
   // Vins Blancs - Tons dorés/champagne subtils
@@ -31,7 +33,8 @@ export const wineColorThemes: Record<string, WineColorTheme> = {
     overlay: "bg-yellow-950/8",
     badge: "bg-yellow-900/25 border-yellow-800/35 text-yellow-200",
     text: "text-yellow-200",
-    border: "border-yellow-900/25"
+    border: "border-yellow-900/25",
+    bullet: "bg-yellow-300/70"
   },
   
   // Vins Rosés - Tons rose poudré/saumon délicats
@@ -42,7 +45,8 @@ export const wineColorThemes: Record<string, WineColorTheme> = {
     overlay: "bg-pink-950/8",
     badge: "bg-pink-900/25 border-pink-800/35 text-pink-200",
     text: "text-pink-200",
-    border: "border-pink-900/25"
+    border: "border-pink-900/25",
+    bullet: "bg-pink-300/70"
   },
   
   // Vins Effervescents - Tons argentés/perle sophistiqués
@@ -53,7 +57,8 @@ export const wineColorThemes: Record<string, WineColorTheme> = {
     overlay: "bg-slate-800/10",
     badge: "bg-slate-700/30 border-slate-600/40 text-slate-200",
     text: "text-slate-200",
-    border: "border-slate-700/30"
+    border: "border-slate-700/30",
+    bullet: "bg-slate-300/70"
   },
   
   // Défaut pour les types non reconnus
@@ -64,7 +69,8 @@ export const wineColorThemes: Record<string, WineColorTheme> = {
     overlay: "bg-gray-800/10",
     badge: "bg-gray-700/30 border-gray-600/40 text-gray-200",
     text: "text-gray-200",
-    border: "border-gray-700/30"
+    border: "border-gray-700/30",
+    bullet: "bg-gray-300/70"
   }
 }
 

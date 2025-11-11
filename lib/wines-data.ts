@@ -1163,22 +1163,6 @@ export const wines: Wine[] = [
   
 ]
 
-export function getWinesByCollection(collection: string) {
-  return wines.filter((wine) => wine.collection === collection)
-}
-
-export function getFeaturedWines() {
-  return wines.filter((wine) => wine.featured)
-}
-
 export function getWineBySlug(slug: string) {
   return wines.find((wine) => wine.id === slug)
-}
-
-export function getWinesByType(type: string) {
-  return wines.filter((wine) => wine.type === type)
-}
-
-export function getAllCollections() {
-  return ["classique", "methode", "fruitees", "poussin", "domeni", "confidentielle", "opus"]
 }

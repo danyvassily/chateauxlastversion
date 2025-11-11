@@ -40,7 +40,7 @@ export function EspaceSection({
   index = 0
 }: EspaceSectionProps) {
   return (
-    <ScrollAnimation animation="fadeIn" index={index}>
+    <ScrollAnimation animation="fadeIn" delay={index * 0.1}>
       <section className="relative w-full overflow-hidden py-4 lg:py-6">
         <div className={cn(
           "grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6",

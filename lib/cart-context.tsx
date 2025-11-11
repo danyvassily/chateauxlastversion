@@ -4,7 +4,7 @@ import type React from "react"
 import { createContext, useContext, useReducer, useEffect } from "react"
 import { toast } from "@/hooks/use-toast"
 
-export interface CartItem {
+interface CartItem {
   id: string
   name: string
   price: number

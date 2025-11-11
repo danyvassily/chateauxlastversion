@@ -18,11 +18,29 @@ import { ScrollAnimation } from "@/components/gsap/ScrollAnimations"
 import { ArrowLeft, Crown, Wine, Gift, Award, Sparkles } from "lucide-react"
 import Link from "next/link"
 
+type FormData = {
+  plan: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  country: string;
+  birthDate: string;
+  preferences: string;
+  wineExperience: string;
+  favoriteWineTypes: string[];
+  newsletter: boolean;
+  terms: boolean;
+};
+
 export default function InscriptionPage() {
   const searchParams = useSearchParams()
   const initialPlan = searchParams.get("plan") || "prestige"
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     plan: "connaisseur", // Tous commencent par le niveau d'entrée
     firstName: "",
     lastName: "",
@@ -73,7 +91,7 @@ export default function InscriptionPage() {
     // console.log("Form submitted:", formData) // Disabled in production
   }
 
-  const updateFormData = (field: string, value: string | boolean) => {
+  const updateFormData = (field: keyof FormData, value: string | boolean | string[]) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 

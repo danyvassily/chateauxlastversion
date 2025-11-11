@@ -1,4 +1,4 @@
-export type Cuvee = {
+type Cuvee = {
   title: string;
   slug: string;
   route: string;
@@ -7,7 +7,7 @@ export type Cuvee = {
   image?: string;
 };
 
-export type Gamme = {
+type Gamme = {
   id: string;
   title: string;
   description: string;
@@ -35,7 +35,7 @@ const pdfOverrides: Record<string, string> = {
 };
 
 // Helper pour obtenir le PDF path
-export function getPdfPath(slug: string): string {
+function getPdfPath(slug: string): string {
   return pdfOverrides[slug] || `/fiche-technique/${slug}.pdf`;
 }
 
@@ -209,7 +209,7 @@ export const gammes: Gamme[] = [
 ];
 
 // Helper pour filtrer par couleur
-export function filterCuveesByColor(cuvees: Cuvee[], colorFilter?: string): Cuvee[] {
+function filterCuveesByColor(cuvees: Cuvee[], colorFilter?: string): Cuvee[] {
   if (!colorFilter || colorFilter === "Tous") {
     return cuvees;
   }
@@ -217,7 +217,7 @@ export function filterCuveesByColor(cuvees: Cuvee[], colorFilter?: string): Cuve
 }
 
 // Helper pour obtenir toutes les couleurs disponibles
-export function getAvailableColors(): string[] {
+function getAvailableColors(): string[] {
   const colors = new Set<string>();
   gammes.forEach(gamme => {
     gamme.cuvees.forEach(cuvee => {

@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css?family=Kaisei%20Decol:700|Noto%20Sans%20Bengali:400');
+@import "tailwindcss";
 
 /* Import des styles de grain et textures premium */
 @import '../styles/grain.css';

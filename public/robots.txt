@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chateau-lastours.netlify.app/sitemap.xml

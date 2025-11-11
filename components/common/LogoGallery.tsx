@@ -7,7 +7,7 @@ import { Download } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
-export interface LogoItem {
+interface LogoItem {
   src: string
   alt: string
   downloadUrl?: string

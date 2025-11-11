@@ -1,4 +1,4 @@
-export interface Article {
+interface Article {
   slug: string
   title: string
   date: string // YYYY-MM-DD

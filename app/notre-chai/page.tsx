@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { TransitionLink } from "@/components/gsap/TransitionLink";
@@ -161,10 +162,13 @@ export default function NotreChai() {
             {/* Image hero */}
             <div className="lg:col-span-7 order-1 lg:order-2">
               <div className="relative h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.01] transition-all duration-700 group">
-                <img
+                <Image
                   src="/page/notre-chai-manque-1-photo/elevage-vin-chai-a-barrique-chateau-lastours.jpg"
                   alt="Notre Chai - Château Lastours"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  priority
+                  className="w-full h-full object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-stone-800/20" />
                 <div className="absolute inset-0 grain-subtle" />
@@ -185,10 +189,12 @@ export default function NotreChai() {
         >
           {/* Image panoramique pleine largeur */}
           <div className="relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
-            <img
+            <Image
               src={section.image.src}
               alt={section.image.alt}
-              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+              fill
+              className="w-full h-full object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             
             {/* Overlay gradient subtil */}
@@ -238,10 +244,12 @@ export default function NotreChai() {
               {/* Grande image principale */}
               <div className="md:col-span-2 lg:col-span-1">
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl group">
-                  <img
+                  <Image
                     src="/page/notre-chai-manque-1-photo/chai-a-barrique-chateau-lastours-gaillac-france.jpg"
                     alt="Chai à barriques Château Lastours"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="w-full h-full object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
@@ -256,10 +264,12 @@ export default function NotreChai() {
               {/* Deuxième image */}
               <div className="md:col-span-1">
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl group">
-                  <img
+                  <Image
                     src="/page/notre-chai-manque-1-photo/allee-de-cuves-inox-chai-a-vinification.jpeg"
                     alt="Cuves inox pour vinification"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="w-full h-full object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
@@ -274,10 +284,12 @@ export default function NotreChai() {
               {/* Troisième image */}
               <div className="md:col-span-1">
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl group">
-                  <img
+                  <Image
                     src="/page/notre-chai-manque-1-photo/assemblage-vin-chai-a-barrique-chateau-lastours-gaillac-france.jpeg"
                     alt="Assemblage des vins"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="w-full h-full object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">

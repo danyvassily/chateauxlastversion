@@ -94,18 +94,3 @@ export function ScrollSmootherWrapper({
     </div>
   )
 }
-
-// Hook pour accéder au ScrollSmoother depuis les composants enfants
-export function useScrollSmoother() {
-  return {
-    scrollTo: (target: string | number, smooth: boolean = true, offset: number = 0) => {
-      const smoother = ScrollSmoother.get()
-      if (smoother) {
-        smoother.scrollTo(target, smooth, `top+=${offset}`)
-      }
-    },
-    refresh: () => {
-      ScrollTrigger.refresh()
-    }
-  }
-}

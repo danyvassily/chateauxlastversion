@@ -8,6 +8,7 @@ import { wines, type Wine } from "@/lib/wines-data"
 import { getWineColorTheme } from "@/lib/wine-colors"
 import { ArrowLeft, Award, Grape, BarChart3 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useWineModal } from "@/hooks/use-wine-modal"
 
 interface WinePageClientProps {
@@ -67,14 +68,16 @@ export function WinePageClient({ wine }: WinePageClientProps) {
                 className="relative overflow-hidden cursor-pointer group wine-bottle-container w-full h-full flex items-center justify-center"
                 onClick={() => openModal(wine.image || "/placeholder.svg", wine.name)}
               >
-                <img
+                <Image
                   src={wine.image || "/placeholder.svg"}
                   alt={wine.name}
-                  className="max-h-[280px] sm:max-h-[380px] md:max-h-[480px] lg:max-h-[600px] xl:max-h-[720px] h-auto w-auto object-contain mx-auto transition-transform duration-300 ease-out hover:scale-105"
+                  width={400} // Augmentation pour meilleure qualité sur grands écrans
+                  height={800}
+                  className="max-h-[280px] sm:max-h-[380px] md:max-h-[480px] lg:max-h-[600px] xl:max-h-[720px] h-auto w-auto object-contain mx-auto transition-transform duration-300 ease-out group-hover:scale-105"
                   style={{
                     transformOrigin: 'center center',
-                    maxWidth: '100%'
                   }}
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 30vw"
                 />
                 
                 {/* Indicateur de clic */}
@@ -243,11 +246,13 @@ export function WinePageClient({ wine }: WinePageClientProps) {
               .map((relatedWine) => (
                 <Card key={relatedWine.id} className="group hover:shadow-xl transition-all duration-300">
                   <div className="bg-muted overflow-hidden flex items-center justify-center p-4 min-h-[200px] sm:min-h-[250px] md:h-80">
-                    <img
+                    <Image
                       src={relatedWine.image || "/placeholder.svg"}
                       alt={relatedWine.name}
+                      width={200}
+                      height={400}
                       className="max-h-[180px] sm:max-h-[230px] md:max-h-[280px] h-auto w-auto object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
-                      style={{ maxWidth: '100%' }}
+                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 25vw"
                     />
                   </div>
                   <CardContent className="p-6">

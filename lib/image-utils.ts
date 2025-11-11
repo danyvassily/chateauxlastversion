@@ -13,42 +13,6 @@ function slugify(input: string): string {
     .replace(/(^-|-$)+/g, "")
 }
 
-export function wineImageCandidates(wine: Wine): string[] {
-  const provided = wine.image?.trim() || ""
-  const hasExt = /\.(png|jpg|jpeg|webp|avif)$/i.test(provided)
-  const baseProvided = provided.replace(/\.(png|jpg|jpeg|webp|avif)$/i, "")
-
-  const slug = slugify(wine.name)
-  const preferredBases = [
-    baseProvided || "",
-    `/wine-${slug}`,
-    `/${slug}`,
-  ].filter(Boolean)
-
-  const exts = [".png", ".jpg", ".jpeg", ".webp", ".avif"]
-
-  const list: string[] = []
-  if (provided) list.push(provided)
-  // swap extension variants for provided path
-  if (hasExt) {
-    for (const ext of exts) {
-      const candidate = baseProvided + ext
-      if (candidate !== provided) list.push(candidate)
-    }
-  }
-
-  // Try canonical names like /wine-domeni-blanc.png, etc.
-  for (const base of preferredBases) {
-    for (const ext of exts) list.push(base + ext)
-  }
-
-  // Fallback
-  list.push("/wine-bottle-default.png")
-
-  // Remove duplicates while preserving order
-  return Array.from(new Set(list))
-}
-
 /**
  * Encode un chemin d'image pour qu'il soit compatible avec les URLs
  * Gère les espaces et caractères spéciaux pour Vercel/Next.js

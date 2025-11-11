@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, ReactNode } from 'react'
+import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -53,11 +54,13 @@ export function ParallaxImage({
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
-      <img
+      <Image
         ref={imageRef}
         src={src}
         alt={alt}
-        className="w-full h-full object-cover scale-110"
+        fill
+        className="object-cover scale-110"
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
       {children && (
         <div className="absolute inset-0 flex items-center justify-center">

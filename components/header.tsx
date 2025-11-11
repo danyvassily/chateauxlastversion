@@ -11,6 +11,16 @@ import { getCuveesByColor } from "@/lib/wines"
 import { UserMenu } from "@/components/user-menu"
 import { useAuth } from "@/lib/auth-context"
 
+// Définir un type pour les spécialités si nécessaire
+type Specialite = {
+  name: string;
+  href: string;
+  description: string;
+  slug: string;
+  route: string;
+  title: string;
+};
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
@@ -30,7 +40,9 @@ export function Header() {
   const { state: authState } = useAuth()
   
   // Obtenir les cuvées groupées par couleur
-  const { byColor, specialites } = getCuveesByColor()
+  const { byColor } = getCuveesByColor()
+  
+  const specialites: Specialite[] = [] // Placeholder si cette logique doit être recréée
   
   // Ne pas afficher le mega menu sur mobile/tablette
   const isDesktop = deviceType === 'desktop'

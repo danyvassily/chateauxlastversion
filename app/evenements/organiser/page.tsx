@@ -74,7 +74,6 @@ export default function OrganiserEvenementPage() {
           surface_m2={375}
           capacite={300}
           reverse={false}
-          index={0}
         />
 
         {/* Salle de Réception - Image droite / Texte gauche */}
@@ -86,7 +85,6 @@ export default function OrganiserEvenementPage() {
           surface_m2={100}
           capacite={80}
           reverse={true}
-          index={1}
         />
 
         {/* Salle de Réunion - Image gauche / Texte droite */}
@@ -96,12 +94,11 @@ export default function OrganiserEvenementPage() {
           subtitle="Un havre lumineux pour la créativité"
           description="À l'étage, équipée d'un vidéoprojecteur et d'un éclairage modulable, cet espace raffiné invite à la concentration et à la collaboration, parfait pour séminaires, conférences et ateliers."
           reverse={false}
-          index={2}
         />
       </section>
 
       {/* Accompagnement Personnalisé - Section texte seule (image identique à Yoga & Vins) */}
-      <ScrollAnimation animation="fadeIn" index={7}>
+      <ScrollAnimation animation="fadeIn" delay={0.2}>
         <section className="relative w-full bg-background">
           <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
             <div className="max-w-4xl mx-auto">
@@ -139,11 +136,10 @@ export default function OrganiserEvenementPage() {
           reverse={false}
           ctaLabel="En savoir plus"
           ctaHref="https://www.gaillacvisit.fr/activités-tarn/yoga-et-vin/"
-          index={3}
         />
 
         {/* Escape Game Challenge Vigneron - Section texte seule (pas d'image disponible) */}
-        <ScrollAnimation animation="fadeIn" index={4}>
+        <ScrollAnimation animation="fadeIn" delay={0.3}>
           <section className="relative w-full bg-background">
             <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
               <div className="max-w-4xl mx-auto">
@@ -179,7 +175,6 @@ export default function OrganiserEvenementPage() {
           reverse={false}
           ctaLabel="Plus d'informations"
           ctaHref="https://www.gaillacvisit.fr/atelier-oenologique/"
-          index={5}
         />
       </section>
 
@@ -190,7 +185,6 @@ export default function OrganiserEvenementPage() {
         subtitle="Célébrez avec Élégance"
         description="Chaque été, le domaine s'anime pour deux soirées festives mêlant musique live, gastronomie locale et vins d'exception. Réservez vos dates pour juin [à confirmer] et août [à confirmer] 2025 et partagez des moments authentiques dans un cadre enchanteur."
         reverse={true}
-        index={6}
       />
 
       {/* Contact & CTA */}
